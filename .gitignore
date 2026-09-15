@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Runtime data & Local Embedded Databases
+pids
+*.pid
+*.seed
+*.pid.lock
+.data/
+server/.data/
+*.lock
+mongod.lock
+
+# Uploads
+uploads/
+server/uploads/
+!uploads/.gitkeep
+!server/uploads/.gitkeep
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
