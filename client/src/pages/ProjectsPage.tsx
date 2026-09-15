@@ -90,15 +90,15 @@ export const ProjectsPage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Projects</h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
+          <h1 className="text-2xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">Projects</h1>
+          <p className="text-xs text-[#7C6E65] dark:text-slate-400">
             Workspaces projects, roadmaps, and progress tracking
           </p>
         </div>
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-blue- hover:bg-blue- text-white rounded-xl text-xs font-semibold shadow-sm shadow-blue-/20 transition-all cursor-pointer self-start sm:self-auto"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
           New Project
@@ -128,15 +128,15 @@ export const ProjectsPage: React.FC = () => {
               <div
                 key={project._id}
                 onClick={() => openProject(project)}
-                className="p-5 bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-/50 transition-all cursor-pointer group flex flex-col justify-between relative"
+                className="p-5 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-blue-500/50 transition-all cursor-pointer group flex flex-col justify-between relative"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wider uppercase bg-blue- text-blue- dark:bg-blue-/60 dark:text-blue- border border-blue-/80 dark:border-blue-/60">
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wider uppercase bg-maroon-50 text-maroon-700 dark:bg-blue-950/60 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60">
                       {project.key}
                     </span>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-slate-400 font-medium">
+                      <span className="text-xs text-[#7C6E65] font-medium">
                         {stats.total} {stats.total === 1 ? 'task' : 'tasks'}
                       </span>
                       <button
@@ -144,44 +144,44 @@ export const ProjectsPage: React.FC = () => {
                         onClick={(e) => handleDeleteProject(e, project)}
                         title="Delete project"
                         aria-label="Delete project"
-                        className="p-1 rounded-lg text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 opacity-0 group-hover:opacity-100 transition-all cursor-pointer"
+                        className="p-1 rounded-lg text-[#7C6E65] hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 opacity-0 group-hover:opacity-100 transition-all cursor-pointer"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-blue- dark:group-hover:text-blue- transition-colors">
+                  <h3 className="text-base font-bold text-[#2C1810] dark:text-slate-100 group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
                     {project.name}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#7C6E65] dark:text-slate-400 line-clamp-2 leading-relaxed">
                     {project.description || 'No description provided.'}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800/80 space-y-3">
+                <div className="pt-4 mt-4 border-t border-[#E6DACB]/60 dark:border-slate-800/80 space-y-3">
                   {/* Progress bar */}
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-slate-500">Progress</span>
-                      <span className="text-blue- dark:text-blue-">
+                      <span className="text-[#7C6E65]">Progress</span>
+                      <span className="text-maroon-700 dark:text-blue-300">
                         {stats.completionPercentage}%
                       </span>
                     </div>
                     <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-blue- dark:bg-blue- rounded-full transition-all"
+                        className="h-full bg-maroon-600 dark:bg-blue-600 rounded-full transition-all"
                         style={{ width: `${stats.completionPercentage}%` }}
                       />
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-1 text-xs text-slate-400">
+                  <div className="flex items-center justify-between pt-1 text-xs text-[#7C6E65]">
                     <div className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                       <span>{stats.completed} done</span>
                     </div>
-                    <span className="flex items-center gap-1 text-blue- dark:text-blue- group-hover:translate-x-1 transition-transform font-semibold">
+                    <span className="flex items-center gap-1 text-maroon-700 dark:text-blue-300 group-hover:translate-x-1 transition-transform font-semibold">
                       Open Board &rarr;
                     </span>
                   </div>
@@ -218,7 +218,7 @@ export const ProjectsPage: React.FC = () => {
           />
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300 mb-1.5">
               Description
             </label>
             <textarea
@@ -226,11 +226,11 @@ export const ProjectsPage: React.FC = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="What is the goal of this project?"
-              className="w-full px-3.5 py-2 bg-white dark:bg-[#111827] border border-slate-300 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-/40 focus:border-blue-"
+              className="w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
+          <div className="flex justify-end gap-2 pt-3 border-t border-[#E6DACB] dark:border-slate-800">
             <Button variant="secondary" type="button" onClick={() => setIsModalOpen(false)}>
               Cancel
             </Button>

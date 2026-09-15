@@ -29,7 +29,8 @@ export class AuthController {
 
   static async login(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-      const { emailOrUsername, password } = req.body;
+      const emailOrUsername = (req.body.emailOrUsername || req.body.email || req.body.username || '').trim();
+      const { password } = req.body;
       const result = await AuthService.login(emailOrUsername, password);
 
       res.cookie('refreshToken', result.refreshToken, {

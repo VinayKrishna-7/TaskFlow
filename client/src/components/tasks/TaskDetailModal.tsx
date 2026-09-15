@@ -170,13 +170,13 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
         {/* Left 2 Columns: Main Content */}
         <div className="lg:col-span-2 space-y-5">
           {/* Navigation Tabs */}
-          <div className="flex border-b border-slate-200/80 dark:border-slate-800/80 gap-4">
+          <div className="flex border-b border-[#E6DACB]/80 dark:border-slate-800/80 gap-4">
             <button
               onClick={() => setActiveTab('details')}
               className={`pb-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                 activeTab === 'details'
-                  ? 'border-b-2 border-blue- text-blue- dark:text-blue-'
-                  : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+                  : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
               }`}
             >
               Details & Subtasks
@@ -185,8 +185,8 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               onClick={() => setActiveTab('comments')}
               className={`pb-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                 activeTab === 'comments'
-                  ? 'border-b-2 border-blue- text-blue- dark:text-blue-'
-                  : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+                  : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
               }`}
             >
               Comments
@@ -195,8 +195,8 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               onClick={() => setActiveTab('activity')}
               className={`pb-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                 activeTab === 'activity'
-                  ? 'border-b-2 border-blue- text-blue- dark:text-blue-'
-                  : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+                  : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
               }`}
             >
               Activity Timeline
@@ -206,10 +206,10 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
           {activeTab === 'details' && (
             <div className="space-y-5">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#7C6E65] dark:text-slate-400 mb-1.5">
                   Description
                 </h4>
-                <p className="text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap bg-slate-50 dark:bg-[#111827]/60 p-3.5 rounded-2xl border border-slate-200/60 dark:border-slate-800/60">
+                <p className="text-sm text-[#4A3B32] dark:text-slate-300 whitespace-pre-wrap bg-[#FAF6EE] dark:bg-[#111827]/60 p-3.5 rounded-2xl border border-[#E6DACB]/60 dark:border-slate-800/60">
                   {task.description || 'No description provided.'}
                 </p>
               </div>
@@ -224,11 +224,11 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               {/* Attachments list */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#7C6E65] dark:text-slate-400 flex items-center gap-1.5">
                     <Paperclip className="w-3.5 h-3.5" />
                     Attachments ({task.attachments?.length || 0})
                   </h4>
-                  <label className="cursor-pointer text-xs text-blue- dark:text-blue- font-semibold hover:underline flex items-center gap-1">
+                  <label className="cursor-pointer text-xs text-maroon-700 dark:text-blue-300 font-semibold hover:underline flex items-center gap-1">
                     <Upload className="w-3.5 h-3.5" />
                     Upload File
                     <input type="file" onChange={handleFileUpload} className="hidden" />
@@ -237,7 +237,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
 
                 <div className="flex flex-wrap gap-2">
                   {task.attachments?.length === 0 ? (
-                    <p className="text-xs text-slate-400 italic">No attachments uploaded</p>
+                    <p className="text-xs text-[#7C6E65] italic">No attachments uploaded</p>
                   ) : (
                     task.attachments?.map((att) => (
                       <a
@@ -245,11 +245,11 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
                         href={`http://localhost:5000${att.url}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 p-2 bg-slate-50 dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 transition-colors"
+                        className="flex items-center gap-2 p-2 bg-[#FAF6EE] dark:bg-[#111827] rounded-xl border border-[#E6DACB] dark:border-slate-800 text-xs font-medium text-[#4A3B32] dark:text-slate-300 hover:bg-slate-100 transition-colors"
                       >
-                        <Paperclip className="w-3.5 h-3.5 text-slate-400" />
+                        <Paperclip className="w-3.5 h-3.5 text-[#7C6E65]" />
                         <span className="truncate max-w-[150px]">{att.originalName}</span>
-                        <span className="text-[10px] text-slate-400">({Math.round(att.size / 1024)} KB)</span>
+                        <span className="text-[10px] text-[#7C6E65]">({Math.round(att.size / 1024)} KB)</span>
                       </a>
                     ))
                   )}
@@ -263,18 +263,18 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
           {activeTab === 'activity' && (
             <div className="space-y-3">
               {activities.length === 0 ? (
-                <p className="text-xs text-slate-400 italic">No activities recorded yet.</p>
+                <p className="text-xs text-[#7C6E65] italic">No activities recorded yet.</p>
               ) : (
                 activities.map((act) => (
                   <div key={act._id} className="flex items-start gap-3 text-xs">
-                    <div className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-700 dark:text-slate-300 flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center font-bold text-[#4A3B32] dark:text-slate-300 flex-shrink-0 mt-0.5">
                       {act.actor?.name?.charAt(0) || 'A'}
                     </div>
                     <div className="flex-1">
-                      <p className="text-slate-800 dark:text-slate-200">
+                      <p className="text-[#2C1810] dark:text-slate-200">
                         <span className="font-semibold">{act.actor?.name}</span> {act.action.replace('_', ' ').toLowerCase()}
                       </p>
-                      <span className="text-[10px] text-slate-400">
+                      <span className="text-[10px] text-[#7C6E65]">
                         {format(new Date(act.createdAt), 'MMM d, h:mm a')}
                       </span>
                     </div>
@@ -287,15 +287,15 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
 
         {/* Right Column: Metadata Controls & Time Tracking */}
         <div className="space-y-4">
-          <div className="p-4 bg-slate-50/80 dark:bg-[#111827]/70 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 space-y-3.5">
+          <div className="p-4 bg-slate-50/80 dark:bg-[#111827]/70 rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 space-y-3.5">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <label className="block text-[10px] font-bold uppercase tracking-wider text-[#7C6E65] mb-1">
                 Status
               </label>
               <select
                 value={task.status}
                 onChange={(e) => handleStatusChange(e.target.value as TaskStatus)}
-                className="w-full px-3 py-1.5 bg-white dark:bg-[#0B0F17] border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-/40"
+                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#0B0F17] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
               >
                 <option value="TODO">To Do</option>
                 <option value="IN_PROGRESS">In Progress</option>
@@ -305,13 +305,13 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <label className="block text-[10px] font-bold uppercase tracking-wider text-[#7C6E65] mb-1">
                 Priority
               </label>
               <select
                 value={task.priority}
                 onChange={(e) => handlePriorityChange(e.target.value as TaskPriority)}
-                className="w-full px-3 py-1.5 bg-white dark:bg-[#0B0F17] border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-/40"
+                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#0B0F17] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
               >
                 <option value="LOW">Low</option>
                 <option value="MEDIUM">Medium</option>
@@ -321,13 +321,13 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <label className="block text-[10px] font-bold uppercase tracking-wider text-[#7C6E65] mb-1">
                 Assignee
               </label>
               <select
                 value={task.assignee?._id || ''}
                 onChange={(e) => handleAssigneeChange(e.target.value)}
-                className="w-full px-3 py-1.5 bg-white dark:bg-[#0B0F17] border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-/40"
+                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#0B0F17] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
               >
                 <option value="">Unassigned</option>
                 {members.map((m) => (
@@ -340,11 +340,11 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
 
             {task.dueDate && (
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#7C6E65] mb-1">
                   Due Date
                 </label>
-                <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                <p className="text-xs font-semibold text-[#4A3B32] dark:text-slate-300 flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-[#7C6E65]" />
                   {format(new Date(task.dueDate), 'MMMM d, yyyy')}
                 </p>
               </div>
@@ -363,13 +363,13 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
           <div className="flex gap-2 pt-2">
             <button
               onClick={handleDuplicate}
-              className="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              className="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-[#4A3B32] dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
               <Copy className="w-3.5 h-3.5" /> Duplicate
             </button>
             <button
               onClick={handleDelete}
-              className="flex-1 py-2 px-3 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              className="flex-1 py-2 px-3 bg-rose-50 hover:bg-rose-100 dark:bg-blue-950/40 text-rose-600 dark:text-blue-400 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
               <Trash2 className="w-3.5 h-3.5" /> Delete
             </button>

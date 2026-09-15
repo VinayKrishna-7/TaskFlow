@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AppLayout } from '../layouts/AppLayout';
 
 // Lazy-loaded pages for fast initial bundle and zero-lag loading
@@ -19,12 +19,32 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then((m) => ({ d
 
 const PageLoader: React.FC = () => (
   <div className="w-full py-16 flex flex-col items-center justify-center space-y-3">
-    <div className="w-7 h-7 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
-    <span className="text-xs font-medium text-slate-400">Loading...</span>
+    <div className="w-7 h-7 border-2 border-maroon-600 dark:border-blue-500 border-t-transparent rounded-full animate-spin" />
+    <span className="text-xs font-medium text-[#7C6E65]">Loading...</span>
   </div>
 );
 
 export const AppRoutes: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname.toLowerCase();
+    let pageTitle = 'TaskFlow — Project & Task Management';
+    if (path.includes('/dashboard')) pageTitle = 'Dashboard · TaskFlow';
+    else if (path.includes('/tasks')) pageTitle = 'My Tasks · TaskFlow';
+    else if (path.includes('/projects')) pageTitle = 'Projects · TaskFlow';
+    else if (path.includes('/calendar')) pageTitle = 'Calendar · TaskFlow';
+    else if (path.includes('/team')) pageTitle = 'Team · TaskFlow';
+    else if (path.includes('/analytics')) pageTitle = 'Analytics · TaskFlow';
+    else if (path.includes('/settings') || path.includes('/profile')) pageTitle = 'Settings · TaskFlow';
+    else if (path.includes('/login')) pageTitle = 'Sign In · TaskFlow';
+    else if (path.includes('/register')) pageTitle = 'Create Account · TaskFlow';
+    else if (path.includes('/forgot-password')) pageTitle = 'Forgot Password · TaskFlow';
+    else if (path.includes('/reset-password')) pageTitle = 'Reset Password · TaskFlow';
+    
+    document.title = pageTitle;
+  }, [location]);
+
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>

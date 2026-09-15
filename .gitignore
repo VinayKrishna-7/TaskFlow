@@ -21,19 +21,17 @@ yarn-error.log*
 pnpm-debug.log*
 *.log
 
-# Runtime data & Local Embedded Databases
+# Runtime data
 pids
 *.pid
 *.seed
 *.pid.lock
-.data/
-server/.data/
-*.lock
-mongod.lock
 
-# Uploads
+# Uploads & Data
 uploads/
 server/uploads/
+.data/
+server/.data/
 !uploads/.gitkeep
 !server/uploads/.gitkeep
 

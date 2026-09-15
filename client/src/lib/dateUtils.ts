@@ -46,7 +46,7 @@ export function getDueStatus(dueDate?: string | Date | null, isCompleted = false
       isToday: false,
       isTomorrow: true,
       exactDate,
-      color: 'text-blue- dark:text-blue- bg-blue- dark:bg-blue-/40 border border-blue- dark:border-blue-/60',
+      color: 'text-maroon-700 dark:text-blue-300 bg-maroon-50 dark:bg-blue-950/40 border border-maroon-200 dark:border-blue-800/60',
     };
   }
 
@@ -57,7 +57,7 @@ export function getDueStatus(dueDate?: string | Date | null, isCompleted = false
       isToday: false,
       isTomorrow: false,
       exactDate,
-      color: 'text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700',
+      color: 'text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-[#E6DACB] dark:border-slate-700',
     };
   }
 
@@ -72,8 +72,8 @@ export function getDueStatus(dueDate?: string | Date | null, isCompleted = false
       isTomorrow: false,
       exactDate,
       color: isCompleted
-        ? 'text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700'
-        : 'text-rose-700 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60',
+        ? 'text-[#7C6E65] dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-[#E6DACB] dark:border-slate-700'
+        : 'text-rose-700 dark:text-blue-400 bg-rose-50 dark:bg-blue-950/40 border border-rose-200 dark:border-blue-800/60',
     };
   }
 
@@ -83,6 +83,6 @@ export function getDueStatus(dueDate?: string | Date | null, isCompleted = false
     isToday: false,
     isTomorrow: false,
     exactDate,
-    color: 'text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700',
+    color: 'text-[#7C6E65] dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-[#E6DACB] dark:border-slate-700',
   };
 }

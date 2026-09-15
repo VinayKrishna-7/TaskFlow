@@ -88,17 +88,17 @@ export const DashboardPage: React.FC = () => {
       {/* Page Title & Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+          <h1 className="text-2xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">
             Welcome back, {user?.name?.split(' ')[0]} 👋
           </h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
-            Here's what is happening in <span className="font-semibold text-slate-700 dark:text-slate-200">{activeWorkspace?.name || 'your workspace'}</span>
+          <p className="text-xs text-[#7C6E65] dark:text-slate-400">
+            Here's what is happening in <span className="font-semibold text-[#4A3B32] dark:text-slate-200">{activeWorkspace?.name || 'your workspace'}</span>
           </p>
         </div>
         {activeProject && (
           <button
             onClick={() => setIsCreateOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue- hover:bg-blue- text-white rounded-xl text-xs font-semibold shadow-sm shadow-blue-/20 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             New Task
@@ -112,7 +112,7 @@ export const DashboardPage: React.FC = () => {
           {Array.from({ length: 4 }).map((_, i) => (
             <div
               key={i}
-              className="p-4 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4 animate-pulse"
+              className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4 animate-pulse"
             >
               <div className="w-11 h-11 rounded-xl bg-slate-200 dark:bg-slate-800 flex-shrink-0" />
               <div className="space-y-2 flex-1">
@@ -124,43 +124,43 @@ export const DashboardPage: React.FC = () => {
         </div>
       ) : (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-4 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-blue- dark:bg-blue-/50 text-blue- dark:text-blue-">
+          <div className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
+            <div className="p-3 rounded-xl bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60">
               <Layers className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Tasks</p>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{overview.totalTasks}</h3>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65]">Total Tasks</p>
+              <h3 className="text-xl font-bold text-[#2C1810] dark:text-slate-100">{overview.totalTasks}</h3>
             </div>
           </div>
 
-          <div className="p-4 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400">
+          <div className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
+            <div className="p-3 rounded-xl bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60">
               <Clock className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">In Progress</p>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{overview.inProgressTasks}</h3>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65]">In Progress</p>
+              <h3 className="text-xl font-bold text-[#2C1810] dark:text-slate-100">{overview.inProgressTasks}</h3>
             </div>
           </div>
 
-          <div className="p-4 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
+          <div className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
             <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400">
               <CheckCircle2 className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Completion Rate</p>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{overview.completionRate}%</h3>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65]">Completion Rate</p>
+              <h3 className="text-xl font-bold text-[#2C1810] dark:text-slate-100">{overview.completionRate}%</h3>
             </div>
           </div>
 
-          <div className="p-4 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400">
+          <div className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4">
+            <div className="p-3 rounded-xl bg-rose-50 dark:bg-blue-950/50 text-rose-600 dark:text-blue-400">
               <AlertTriangle className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Overdue</p>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{overview.overdueTasks}</h3>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65]">Overdue</p>
+              <h3 className="text-xl font-bold text-[#2C1810] dark:text-slate-100">{overview.overdueTasks}</h3>
             </div>
           </div>
         </div>
@@ -169,8 +169,8 @@ export const DashboardPage: React.FC = () => {
       {/* Visualizations Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Status Distribution */}
-        <div className="p-5 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300">
             Tasks by Status
           </h3>
           <div className="h-60 flex items-center justify-center">
@@ -203,14 +203,14 @@ export const DashboardPage: React.FC = () => {
                 </PieChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-xs text-slate-400">No tasks status data available</p>
+              <p className="text-xs text-[#7C6E65]">No tasks status data available</p>
             )}
           </div>
         </div>
 
         {/* 7-Day Completion Trend */}
-        <div className="p-5 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300">
             Completion Velocity (Last 7 Days)
           </h3>
           <div className="h-60 flex items-center justify-center">
@@ -232,7 +232,7 @@ export const DashboardPage: React.FC = () => {
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <p className="text-xs text-slate-400">No tasks completed in the last 7 days</p>
+              <p className="text-xs text-[#7C6E65]">No tasks completed in the last 7 days</p>
             )}
           </div>
         </div>
@@ -241,8 +241,8 @@ export const DashboardPage: React.FC = () => {
       {/* Bottom Section: Upcoming Deadlines & Recent Activity Feed */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Upcoming Deadlines */}
-        <div className="p-5 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300">
             Upcoming Deadlines
           </h3>
           <div className="space-y-2.5">
@@ -250,7 +250,7 @@ export const DashboardPage: React.FC = () => {
               Array.from({ length: 4 }).map((_, i) => (
                 <div
                   key={i}
-                  className="p-3 bg-slate-50/50 dark:bg-slate-800/20 rounded-xl border border-slate-100 dark:border-slate-800/50 flex items-center justify-between gap-3 animate-pulse"
+                  className="p-3 bg-slate-50/50 dark:bg-slate-800/20 rounded-xl border border-[#E6DACB]/60 dark:border-slate-800/50 flex items-center justify-between gap-3 animate-pulse"
                 >
                   <div className="space-y-1.5 flex-1">
                     <div className="w-3/4 h-3.5 bg-slate-200 dark:bg-slate-800 rounded" />
@@ -260,7 +260,7 @@ export const DashboardPage: React.FC = () => {
                 </div>
               ))
             ) : !recentTasks || recentTasks.length === 0 ? (
-              <p className="text-xs text-slate-400 italic py-4 text-center">No upcoming tasks scheduled.</p>
+              <p className="text-xs text-[#7C6E65] italic py-4 text-center">No upcoming tasks scheduled.</p>
             ) : (
               recentTasks.map((t) => {
                 const due = t.dueDate ? getDueStatus(t.dueDate, t.status === 'COMPLETED') : null;
@@ -268,14 +268,14 @@ export const DashboardPage: React.FC = () => {
                   <div
                     key={t._id}
                     onClick={() => setSelectedTaskId(t._id)}
-                    className="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-100 dark:border-slate-800/80 flex items-center justify-between gap-3 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors cursor-pointer group"
+                    className="p-3 bg-[#FAF6EE] dark:bg-slate-800/40 rounded-xl border border-[#E6DACB]/60 dark:border-slate-800/80 flex items-center justify-between gap-3 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors cursor-pointer group"
                   >
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-100 truncate group-hover:text-blue- dark:group-hover:text-blue- transition-colors">
+                      <h4 className="text-xs font-semibold text-[#2C1810] dark:text-slate-100 truncate group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
                         {t.title}
                       </h4>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="text-[10px] text-slate-400 flex items-center gap-1">
+                        <span className="text-[10px] text-[#7C6E65] flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {t.dueDate ? format(new Date(t.dueDate), 'MMM d, yyyy') : 'No due date'}
                         </span>
@@ -297,9 +297,9 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Recent Activity Timeline */}
-        <div className="p-5 bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-            <ActivityIcon className="w-4 h-4 text-blue- dark:text-blue-" />
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300 flex items-center gap-1.5">
+            <ActivityIcon className="w-4 h-4 text-maroon-700 dark:text-blue-300" />
             Workspace Activity
           </h3>
           <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
@@ -314,7 +314,7 @@ export const DashboardPage: React.FC = () => {
                 </div>
               ))
             ) : !recentActivities || recentActivities.length === 0 ? (
-              <p className="text-xs text-slate-400 italic py-4 text-center">No recent activity.</p>
+              <p className="text-xs text-[#7C6E65] italic py-4 text-center">No recent activity.</p>
             ) : (
               recentActivities.slice(0, 8).map((act: any) => (
                 <div key={act._id} className="flex items-start gap-3 text-xs">
@@ -325,12 +325,12 @@ export const DashboardPage: React.FC = () => {
                     className="mt-0.5 flex-shrink-0"
                   />
                   <div className="flex-1">
-                    <p className="text-slate-700 dark:text-slate-300">
-                      <span className="font-semibold text-slate-900 dark:text-slate-100">{act.actor?.name}</span>{' '}
+                    <p className="text-[#4A3B32] dark:text-slate-300">
+                      <span className="font-semibold text-[#2C1810] dark:text-slate-100">{act.actor?.name}</span>{' '}
                       {act.action.replace('_', ' ').toLowerCase()}{' '}
-                      {act.task?.title && <span className="text-blue- dark:text-blue- font-medium">"{act.task.title}"</span>}
+                      {act.task?.title && <span className="text-maroon-700 dark:text-blue-300 font-medium">"{act.task.title}"</span>}
                     </p>
-                    <span className="text-[10px] text-slate-400">
+                    <span className="text-[10px] text-[#7C6E65]">
                       {format(new Date(act.createdAt), 'MMM d, h:mm a')}
                     </span>
                   </div>

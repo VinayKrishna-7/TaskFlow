@@ -15,6 +15,12 @@ import { connectDB, disconnectDB } from '../src/config/db';
 
 beforeAll(async () => {
   await connectDB();
+  const collections = mongoose.connection.collections;
+  for (const key in collections) {
+    try {
+      await collections[key].deleteMany({});
+    } catch (e) {}
+  }
 }, 60000);
 
 afterAll(async () => {

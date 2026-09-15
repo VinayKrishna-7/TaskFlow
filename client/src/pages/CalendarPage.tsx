@@ -140,14 +140,14 @@ export const CalendarPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="p-2.5 rounded-2xl bg-blue- dark:bg-blue-/50 text-blue- dark:text-blue- border border-blue-/80 dark:border-blue-/60">
+            <div className="p-2.5 rounded-2xl bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60">
               <CalendarDays className="w-5 h-5" />
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+              <h1 className="text-xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">
                 Calendar & Timeline
               </h1>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-[#7C6E65] dark:text-slate-400">
                 Pick a date to view deadlines and schedule tasks across daily time slots
               </p>
             </div>
@@ -156,15 +156,15 @@ export const CalendarPage: React.FC = () => {
 
         <div className="flex items-center gap-3">
           {/* Live time indicator */}
-          <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800/80 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 shadow-xs">
-            <Clock className="w-3.5 h-3.5 text-blue-" />
+          <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 shadow-xs">
+            <Clock className="w-3.5 h-3.5 text-maroon-700 dark:text-blue-400" />
             <span>{currentTime}</span>
           </div>
 
           {effectiveProject && (
             <button
               onClick={() => setIsCreateOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-blue- hover:bg-blue- text-white rounded-xl text-xs font-semibold shadow-sm shadow-blue-/20 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               Schedule Task
@@ -177,28 +177,28 @@ export const CalendarPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* ================= DATE SECTION ================= */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-5 shadow-sm space-y-4">
+          <div className="bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-5 shadow-sm space-y-4">
             {/* Header & Month Navigator */}
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-[#7C6E65]">
                   Date Section
                 </h2>
-                <span className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                <span className="text-sm font-bold text-[#2C1810] dark:text-slate-100">
                   {format(currentMonth, 'MMMM yyyy')}
                 </span>
               </div>
               <div className="flex items-center gap-1">
                 <button
                   onClick={prevMonth}
-                  className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  className="p-1.5 rounded-lg border border-[#E6DACB] dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-[#FAF6EE] dark:hover:bg-slate-800 transition-colors"
                   title="Previous Month"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={nextMonth}
-                  className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  className="p-1.5 rounded-lg border border-[#E6DACB] dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-[#FAF6EE] dark:hover:bg-slate-800 transition-colors"
                   title="Next Month"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -210,13 +210,13 @@ export const CalendarPage: React.FC = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={goToToday}
-                className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-semibold text-slate-700 dark:text-slate-300 rounded-lg transition-colors cursor-pointer"
+                className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-semibold text-[#4A3B32] dark:text-slate-300 rounded-lg transition-colors cursor-pointer"
               >
                 Today
               </button>
               <button
                 onClick={goToTomorrow}
-                className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-semibold text-slate-700 dark:text-slate-300 rounded-lg transition-colors cursor-pointer"
+                className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-semibold text-[#4A3B32] dark:text-slate-300 rounded-lg transition-colors cursor-pointer"
               >
                 Tomorrow
               </button>
@@ -225,7 +225,7 @@ export const CalendarPage: React.FC = () => {
             {/* 7-Column Mini-Calendar */}
             <div className="space-y-1">
               {/* Day Name Headers */}
-              <div className="grid grid-cols-7 text-center text-[11px] font-bold text-slate-400 pb-1">
+              <div className="grid grid-cols-7 text-center text-[11px] font-bold text-[#7C6E65] pb-1">
                 <span>Su</span>
                 <span>Mo</span>
                 <span>Tu</span>
@@ -255,12 +255,12 @@ export const CalendarPage: React.FC = () => {
                       onClick={() => setSelectedDate(day)}
                       className={`h-9 w-full rounded-xl flex flex-col items-center justify-center relative transition-all text-xs font-semibold cursor-pointer ${
                         isDaySelected
-                          ? 'bg-blue- text-white shadow-md shadow-blue-/25 font-bold'
+                          ? 'bg-maroon-600 text-white shadow-md shadow-maroon-900/25 font-bold dark:bg-blue-600 dark:shadow-blue-500/25'
                           : isDayToday
-                          ? 'border border-blue- text-blue- dark:text-blue- font-bold bg-blue-/50 dark:bg-blue-/30'
+                          ? 'border border-maroon-200 text-maroon-700 dark:border-blue-700 dark:text-blue-300 font-bold bg-maroon-50/50 dark:bg-blue-950/30'
                           : isCurrent
-                          ? 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                          : 'text-slate-300 dark:text-slate-600 hover:bg-slate-50 dark:hover:bg-slate-900'
+                          ? 'text-[#4A3B32] dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                          : 'text-slate-300 dark:text-slate-600 hover:bg-[#FAF6EE] dark:hover:bg-slate-900'
                       }`}
                     >
                       <span>{format(day, 'd')}</span>
@@ -268,10 +268,10 @@ export const CalendarPage: React.FC = () => {
                         <span
                           className={`w-1.5 h-1.5 rounded-full mt-0.5 ${
                             isDaySelected
-                              ? 'bg-white'
+                              ? 'bg-[#FFFDF9]'
                               : hasOverdue
                               ? 'bg-rose-500 ring-1 ring-rose-400'
-                              : 'bg-blue-'
+                              : 'bg-maroon-600 dark:bg-blue-400'
                           }`}
                         />
                       )}
@@ -283,32 +283,32 @@ export const CalendarPage: React.FC = () => {
           </div>
 
           {/* Selected Date Summary Card */}
-          <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-4 shadow-sm space-y-3">
+          <div className="bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-4 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#7C6E65]">
                   Selected Date
                 </span>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                <h3 className="text-sm font-bold text-[#2C1810] dark:text-slate-100">
                   {format(selectedDate, 'EEEE, MMM d, yyyy')}
                 </h3>
               </div>
-              <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-blue- dark:bg-blue-/60 text-blue- dark:text-blue- border border-blue-/80 dark:border-blue-/60">
+              <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-maroon-50 dark:bg-blue-950/60 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60">
                 {selectedDayTasks.length} {selectedDayTasks.length === 1 ? 'task' : 'tasks'}
               </span>
             </div>
 
             {/* Quick Status Badges */}
-            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-center">
-              <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block">To Do</span>
-                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-[#E6DACB]/60 dark:border-slate-800/80 text-center">
+              <div className="p-2 rounded-xl bg-[#FAF6EE] dark:bg-slate-800/60">
+                <span className="text-[10px] uppercase font-bold text-[#7C6E65] block">To Do</span>
+                <span className="text-sm font-bold text-[#4A3B32] dark:text-slate-300">
                   {todoCount}
                 </span>
               </div>
-              <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/40">
-                <span className="text-[10px] uppercase font-bold text-blue-500 block">In Progress</span>
-                <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
+              <div className="p-2 rounded-xl bg-maroon-50 dark:bg-blue-950/40">
+                <span className="text-[10px] uppercase font-bold text-maroon-600 dark:text-blue-400 block">In Progress</span>
+                <span className="text-sm font-bold text-maroon-700 dark:text-blue-300">
                   {inProgressCount}
                 </span>
               </div>
@@ -324,18 +324,18 @@ export const CalendarPage: React.FC = () => {
 
         {/* ================= TIME SECTION ================= */}
         <div className="lg:col-span-7">
-          <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-5 shadow-sm space-y-4">
+          <div className="bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-5 shadow-sm space-y-4">
             {/* Header */}
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800/80">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E6DACB]/60 dark:border-slate-800/80">
               <div className="flex items-center gap-2">
                 <div className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                  <Clock className="w-4 h-4 text-blue- dark:text-blue-" />
+                  <Clock className="w-4 h-4 text-maroon-700 dark:text-blue-300" />
                 </div>
                 <div>
-                  <h2 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                  <h2 className="text-sm font-bold text-[#2C1810] dark:text-slate-100">
                     Time Section
                   </h2>
-                  <p className="text-[11px] text-slate-400">
+                  <p className="text-[11px] text-[#7C6E65]">
                     Hourly schedule for {format(selectedDate, 'MMMM d, yyyy')}
                   </p>
                 </div>
@@ -344,7 +344,7 @@ export const CalendarPage: React.FC = () => {
               {effectiveProject && (
                 <button
                   onClick={() => setIsCreateOpen(true)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-blue- dark:text-blue- hover:bg-blue- dark:hover:bg-blue-/50 rounded-lg transition-colors border border-blue-/80 dark:border-blue-/60 cursor-pointer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-maroon-700 dark:text-blue-300 hover:bg-maroon-50 dark:hover:bg-blue-950/50 rounded-lg transition-colors border border-maroon-200/80 dark:border-blue-800/60 cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add Task</span>
@@ -356,9 +356,9 @@ export const CalendarPage: React.FC = () => {
             <div className="max-h-[500px] overflow-y-auto pr-1.5 space-y-3">
               {/* All-Day / Unscheduled tasks for selected day */}
               {allDayTasks.length > 0 && (
-                <div className="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200/80 dark:border-slate-800/80 space-y-2">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                    <ListTodo className="w-3.5 h-3.5 text-blue-" />
+                <div className="p-3 bg-[#FAF6EE] dark:bg-slate-800/40 rounded-xl border border-[#E6DACB]/80 dark:border-slate-800/80 space-y-2">
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#7C6E65]">
+                    <ListTodo className="w-3.5 h-3.5 text-maroon-700 dark:text-blue-400" />
                     <span>All-Day / Anytime Due Date ({allDayTasks.length})</span>
                   </div>
                   <div className="space-y-1.5">
@@ -368,10 +368,10 @@ export const CalendarPage: React.FC = () => {
                         <div
                           key={t._id}
                           onClick={() => setSelectedTaskId(t._id)}
-                          className="p-2.5 bg-white dark:bg-[#111827] rounded-xl border border-slate-200/80 dark:border-slate-800/80 hover:border-blue-/50 cursor-pointer transition-all flex items-center justify-between gap-2 shadow-xs group"
+                          className="p-2.5 bg-[#FFFDF9] dark:bg-[#111827] rounded-xl border border-[#E6DACB]/80 dark:border-slate-800/80 hover:border-maroon-200/50 cursor-pointer transition-all flex items-center justify-between gap-2 shadow-xs group"
                         >
                           <div className="flex-1 min-w-0">
-                            <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-blue- dark:group-hover:text-blue- transition-colors">
+                            <h4 className="text-xs font-semibold text-[#2C1810] dark:text-slate-200 truncate group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
                               {t.title}
                             </h4>
                             {due && due.isOverdue && (
@@ -410,7 +410,7 @@ export const CalendarPage: React.FC = () => {
                     >
                       {/* Time Label */}
                       <div className="w-18 flex-shrink-0 pt-0.5">
-                        <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">
+                        <span className="text-[11px] font-bold text-[#7C6E65] dark:text-slate-400">
                           {slot.label}
                         </span>
                       </div>
@@ -425,14 +425,14 @@ export const CalendarPage: React.FC = () => {
                                 <div
                                   key={t._id}
                                   onClick={() => setSelectedTaskId(t._id)}
-                                  className="p-2.5 bg-blue-/50 dark:bg-blue-/30 border border-blue-/80 dark:border-blue-/60 rounded-xl hover:shadow-xs cursor-pointer transition-all flex items-center justify-between gap-2 group/task"
+                                  className="p-2.5 bg-maroon-50/50 dark:bg-blue-950/30 border border-maroon-200/80 dark:border-blue-800/60 rounded-xl hover:shadow-xs cursor-pointer transition-all flex items-center justify-between gap-2 group/task"
                                 >
                                   <div className="flex-1 min-w-0">
-                                    <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate group-hover/task:text-blue- dark:group-hover/task:text-blue-">
+                                    <h4 className="text-xs font-semibold text-[#2C1810] dark:text-slate-200 truncate group-hover/task:text-maroon-700 dark:group-hover/task:text-blue-400">
                                       {t.title}
                                     </h4>
                                     <div className="flex items-center gap-2 mt-0.5">
-                                      <span className="text-[10px] text-slate-400">
+                                      <span className="text-[10px] text-[#7C6E65]">
                                         Due at {format(new Date(t.dueDate!), 'h:mm a')}
                                       </span>
                                       {due && due.isOverdue && (
@@ -457,7 +457,7 @@ export const CalendarPage: React.FC = () => {
                         ) : (
                           <div
                             onClick={() => setIsCreateOpen(true)}
-                            className="h-6 flex items-center text-[11px] text-slate-300 dark:text-slate-600 hover:text-blue- dark:hover:text-blue- cursor-pointer transition-colors"
+                            className="h-6 flex items-center text-[11px] text-slate-300 dark:text-slate-600 hover:text-maroon-700 dark:hover:text-blue-400 cursor-pointer transition-colors"
                           >
                             <span className="hidden group-hover:inline-flex items-center gap-1">
                               <Plus className="w-3 h-3" /> Add at {slot.label}
@@ -473,16 +473,16 @@ export const CalendarPage: React.FC = () => {
               {/* Day completely empty fallback */}
               {selectedDayTasks.length === 0 && (
                 <div className="py-8 text-center space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 flex items-center justify-center mx-auto">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-[#7C6E65] flex items-center justify-center mx-auto">
                     <CalendarIcon className="w-5 h-5" />
                   </div>
-                  <p className="text-xs font-medium text-slate-500">
+                  <p className="text-xs font-medium text-[#7C6E65]">
                     No tasks scheduled for {format(selectedDate, 'MMM d, yyyy')}
                   </p>
                   {effectiveProject && (
                     <button
                       onClick={() => setIsCreateOpen(true)}
-                      className="inline-flex items-center gap-1 text-xs text-blue- dark:text-blue- hover:underline font-semibold cursor-pointer"
+                      className="inline-flex items-center gap-1 text-xs text-maroon-700 dark:text-blue-300 hover:underline font-semibold cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" /> Schedule a task for this date
                     </button>

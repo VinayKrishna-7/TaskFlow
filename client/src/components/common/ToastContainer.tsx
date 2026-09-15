@@ -25,18 +25,18 @@ export const ToastContainer: React.FC = () => {
             className={cn(
               'pointer-events-auto flex items-center gap-3 p-3.5 rounded-2xl shadow-xl border backdrop-blur-md transition-all animate-in slide-in-from-bottom-5 duration-200',
               isSuccess &&
-                'bg-white/95 dark:bg-[#111827]/95 text-slate-900 dark:text-slate-100 border-emerald-500/30 dark:border-emerald-500/30 shadow-emerald-500/5',
+                'bg-white/95 dark:bg-[#111827]/95 text-[#2C1810] dark:text-slate-100 border-emerald-500/30 dark:border-emerald-500/30 shadow-emerald-500/5',
               isError &&
-                'bg-white/95 dark:bg-[#111827]/95 text-slate-900 dark:text-slate-100 border-rose-500/30 dark:border-rose-500/30 shadow-rose-500/5',
+                'bg-white/95 dark:bg-[#111827]/95 text-[#2C1810] dark:text-slate-100 border-rose-500/30 dark:border-rose-500/30 shadow-rose-500/5',
               !isSuccess &&
                 !isError &&
-                'bg-white/95 dark:bg-[#111827]/95 text-slate-900 dark:text-slate-100 border-blue-/30 dark:border-blue-/30 shadow-blue-/5'
+                'bg-white/95 dark:bg-[#111827]/95 text-[#2C1810] dark:text-slate-100 border-maroon-200/30 dark:border-blue-800/30 shadow-maroon-900/5'
             )}
           >
             <div className="flex-shrink-0">
               {isSuccess && <CheckCircle2 className="w-4 h-4 text-emerald-500" />}
               {isError && <AlertCircle className="w-4 h-4 text-rose-500" />}
-              {!isSuccess && !isError && <Info className="w-4 h-4 text-blue-" />}
+              {!isSuccess && !isError && <Info className="w-4 h-4 text-maroon-700 dark:text-blue-400" />}
             </div>
 
             <p className="text-xs font-medium flex-1 leading-snug">{toast.message}</p>
@@ -45,7 +45,7 @@ export const ToastContainer: React.FC = () => {
               type="button"
               onClick={() => removeToast(toast.id)}
               aria-label="Dismiss notification"
-              className="flex-shrink-0 p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              className="flex-shrink-0 p-1 rounded-lg text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>

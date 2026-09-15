@@ -21,8 +21,13 @@ export const registerSchema = z.object({
 
 export const loginSchema = z.object({
   body: z.object({
-    emailOrUsername: z.string().min(1, 'Email or username is required'),
+    emailOrUsername: z.string().optional(),
+    email: z.string().optional(),
+    username: z.string().optional(),
     password: z.string().min(1, 'Password is required'),
+  }).refine((data) => Boolean(data.emailOrUsername || data.email || data.username), {
+    message: 'Email or username is required',
+    path: ['emailOrUsername'],
   }),
 });
 

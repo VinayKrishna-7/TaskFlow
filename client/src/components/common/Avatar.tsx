@@ -62,7 +62,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       title={name}
       aria-label={name}
       className={cn(
-        'rounded-full bg-gradient-to-tr from-blue- to-cyan- text-white font-bold flex items-center justify-center select-none shadow-xs flex-shrink-0 tracking-tight',
+        'rounded-full bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-blue-600 dark:via-blue-500 dark:to-cyan-600 text-[#FFFDF9] font-bold flex items-center justify-center select-none shadow-xs flex-shrink-0 tracking-tight ring-1 ring-[#800020]/30 dark:ring-blue-500/30',
         sizeClasses[size],
         className
       )}

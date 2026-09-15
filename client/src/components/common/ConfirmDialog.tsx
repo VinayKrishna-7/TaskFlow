@@ -34,23 +34,23 @@ export const ConfirmDialog: React.FC = () => {
           <div
             className={`p-2.5 rounded-xl flex-shrink-0 ${
               isDanger
-                ? 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400'
-                : 'bg-blue- dark:bg-blue-/50 text-blue- dark:text-blue-'
+                ? 'bg-rose-50 dark:bg-blue-950/50 text-rose-600 dark:text-blue-400'
+                : 'bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60'
             }`}
           >
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div className="space-y-1">
-            <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+            <h4 className="text-sm font-bold text-[#2C1810] dark:text-slate-100">
               {options.title}
             </h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-[#7C6E65] dark:text-slate-400 leading-relaxed">
               {options.description || 'This action cannot be undone.'}
             </p>
           </div>
         </div>
 
-        <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-[#E6DACB]/60 dark:border-slate-800">
           <Button
             variant="secondary"
             size="sm"

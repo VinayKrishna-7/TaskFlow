@@ -53,16 +53,16 @@ export const SubtasksList: React.FC<SubtasksListProps> = ({ taskId, subtasks, on
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#7C6E65] dark:text-slate-400">
           Subtasks ({completed}/{total})
         </h4>
-        <span className="text-xs font-semibold text-blue- dark:text-blue-">{percentage}%</span>
+        <span className="text-xs font-semibold text-maroon-700 dark:text-blue-300">{percentage}%</span>
       </div>
 
       {/* Progress Bar */}
       <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
         <div
-          className="h-full bg-blue- dark:bg-blue- transition-all duration-300 rounded-full"
+          className="h-full bg-maroon-600 dark:bg-blue-600 transition-all duration-300 rounded-full"
           style={{ width: `${percentage}%` }}
         />
       </div>
@@ -72,24 +72,24 @@ export const SubtasksList: React.FC<SubtasksListProps> = ({ taskId, subtasks, on
         {subtasks.map((sub) => (
           <div
             key={sub.id}
-            className="flex items-center justify-between py-2 px-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[#111827]/80 group transition-colors"
+            className="flex items-center justify-between py-2 px-2.5 rounded-xl hover:bg-[#FAF6EE] dark:hover:bg-[#111827]/80 group transition-colors"
           >
             <button
               onClick={() => handleToggle(sub.id)}
-              className="flex items-center gap-2.5 text-left text-xs text-slate-800 dark:text-slate-200 cursor-pointer"
+              className="flex items-center gap-2.5 text-left text-xs text-[#2C1810] dark:text-slate-200 cursor-pointer"
             >
               {sub.completed ? (
-                <CheckSquare className="w-4 h-4 text-blue- dark:text-blue- flex-shrink-0" />
+                <CheckSquare className="w-4 h-4 text-maroon-700 dark:text-blue-300 flex-shrink-0" />
               ) : (
-                <Square className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                <Square className="w-4 h-4 text-[#7C6E65] flex-shrink-0" />
               )}
-              <span className={sub.completed ? 'line-through text-slate-400 dark:text-slate-500' : ''}>
+              <span className={sub.completed ? 'line-through text-[#7C6E65] dark:text-slate-400' : ''}>
                 {sub.title}
               </span>
             </button>
             <button
               onClick={() => handleDelete(sub.id)}
-              className="opacity-0 group-hover:opacity-100 p-1 text-slate-400 hover:text-rose-500 transition-opacity cursor-pointer"
+              className="opacity-0 group-hover:opacity-100 p-1 text-[#7C6E65] hover:text-rose-500 transition-opacity cursor-pointer"
             >
               <Trash2 className="w-3.5 h-3.5" />
             </button>
@@ -104,12 +104,12 @@ export const SubtasksList: React.FC<SubtasksListProps> = ({ taskId, subtasks, on
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
           placeholder="Add a subtask..."
-          className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-[#111827] border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-/40"
+          className="flex-1 px-3 py-1.5 bg-[#FAF6EE] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
         />
         <button
           type="submit"
           disabled={isAdding || !newTitle.trim()}
-          className="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-blue- hover:text-white text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold disabled:opacity-50 transition-colors cursor-pointer"
+          className="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-maroon-700 dark:hover:bg-blue-600 hover:text-white dark:hover:text-white text-[#4A3B32] dark:text-slate-200 rounded-xl text-xs font-semibold disabled:opacity-50 transition-colors cursor-pointer"
         >
           <Plus className="w-3.5 h-3.5" />
         </button>

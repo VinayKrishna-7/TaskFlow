@@ -46,14 +46,18 @@ export class CommentService {
 
     for (const userId of mentionedUserIds) {
       if (userId !== authorId) {
-        NotificationService.create({
-          recipient: userId,
-          type: 'MENTION',
-          title: 'You were mentioned in a comment',
-          message: `You were mentioned in a comment on "${task.title}"`,
-          relatedTask: taskId,
-          relatedProject: task.project.toString(),
-        }).catch(() => {});
+        try {
+          await NotificationService.create({
+            recipient: userId,
+            type: 'MENTION',
+            title: 'You were mentioned in a comment',
+            message: `You were mentioned in a comment on "${task.title}"`,
+            relatedTask: taskId,
+            relatedProject: task.project.toString(),
+          });
+        } catch (notifErr) {
+          console.warn('Failed to deliver mention notification:', notifErr);
+        }
       }
     }
 
@@ -62,14 +66,18 @@ export class CommentService {
       task.assignee.toString() !== authorId &&
       !mentionedUserIds.includes(task.assignee.toString())
     ) {
-      NotificationService.create({
-        recipient: task.assignee.toString(),
-        type: 'COMMENT',
-        title: 'New Comment on Task',
-        message: `A new comment was added to "${task.title}"`,
-        relatedTask: taskId,
-        relatedProject: task.project.toString(),
-      }).catch(() => {});
+      try {
+        await NotificationService.create({
+          recipient: task.assignee.toString(),
+          type: 'COMMENT',
+          title: 'New comment on your task',
+          message: `A new comment was added to "${task.title}"`,
+          relatedTask: taskId,
+          relatedProject: task.project.toString(),
+        });
+      } catch (notifErr) {
+        console.warn('Failed to deliver task assignee notification:', notifErr);
+      }
     }
 
     emitToProject(task.project.toString(), 'comment:created', populated);

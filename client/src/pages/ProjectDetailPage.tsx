@@ -83,7 +83,7 @@ export const ProjectDetailPage: React.FC = () => {
         <button
           type="button"
           onClick={() => navigate('/projects')}
-          className="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1 text-xs font-semibold text-[#7C6E65] hover:text-[#2C1810] dark:hover:text-slate-100 transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to projects
         </button>
@@ -101,19 +101,19 @@ export const ProjectDetailPage: React.FC = () => {
       {/* Project Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 flex-shrink-0">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-blue- dark:bg-blue-/50 text-blue- dark:text-blue- border border-blue-/80 dark:border-blue-/60 shadow-xs">
+          <div className="p-2.5 rounded-2xl bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60 shadow-xs">
             <FolderKanban className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue- dark:text-blue-">
+              <span className="text-xs font-bold uppercase tracking-wider text-maroon-700 dark:text-blue-300">
                 {project.key}
               </span>
-              <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+              <h1 className="text-xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">
                 {project.name}
               </h1>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
+            <p className="text-xs text-[#7C6E65] dark:text-slate-400 line-clamp-1">
               {project.description || 'Collaborative task management'}
             </p>
           </div>
@@ -123,9 +123,9 @@ export const ProjectDetailPage: React.FC = () => {
           <button
             type="button"
             onClick={() => setIsAIModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold bg-gradient-to-r from-blue-/10 via-purple-500/10 to-pink-500/10 text-blue- dark:text-blue- border border-blue-/80 dark:border-blue-/60 rounded-xl hover:from-blue-/20 transition-all cursor-pointer shadow-xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold bg-gradient-to-r from-maroon-500/10 via-rose-500/10 to-amber-500/10 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60 rounded-xl hover:from-maroon-500/20 transition-all cursor-pointer shadow-xs"
           >
-            <Sparkles className="w-3.5 h-3.5 text-blue- dark:text-blue-" />
+            <Sparkles className="w-3.5 h-3.5 text-maroon-700 dark:text-blue-300" />
             AI Breakdown
           </button>
           <button
@@ -134,7 +134,7 @@ export const ProjectDetailPage: React.FC = () => {
               setCreateStatus('TODO');
               setIsCreateOpen(true);
             }}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-blue- hover:bg-blue- text-white rounded-xl text-xs font-semibold shadow-sm shadow-blue-/20 transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             Add Task
@@ -143,14 +143,14 @@ export const ProjectDetailPage: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-slate-200/80 dark:border-slate-800/80 gap-6 text-xs font-bold uppercase tracking-wider flex-shrink-0">
+      <div className="flex border-b border-[#E6DACB]/80 dark:border-slate-800/80 gap-6 text-xs font-bold uppercase tracking-wider flex-shrink-0">
         <button
           type="button"
           onClick={() => setActiveTab('board')}
           className={`pb-2.5 flex items-center gap-2 transition-colors cursor-pointer ${
             activeTab === 'board'
-              ? 'border-b-2 border-blue- text-blue- dark:text-blue-'
-              : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+              : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
           }`}
         >
           <FolderKanban className="w-4 h-4" />
@@ -161,8 +161,8 @@ export const ProjectDetailPage: React.FC = () => {
           onClick={() => setActiveTab('tasks')}
           className={`pb-2.5 flex items-center gap-2 transition-colors cursor-pointer ${
             activeTab === 'tasks'
-              ? 'border-b-2 border-blue- text-blue- dark:text-blue-'
-              : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+              : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
           }`}
         >
           <CheckSquare className="w-4 h-4" />
@@ -182,13 +182,13 @@ export const ProjectDetailPage: React.FC = () => {
         )}
 
         {activeTab === 'tasks' && (
-          <div className="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/80 dark:border-slate-800/80 overflow-y-auto max-h-full shadow-sm">
+          <div className="bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 overflow-y-auto max-h-full shadow-sm">
             {tasks.length === 0 ? (
               <div className="p-12 text-center space-y-3">
-                <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                <p className="text-sm font-semibold text-[#2C1810] dark:text-slate-200">
                   No tasks in this project yet
                 </p>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-[#7C6E65]">
                   Add your first task or use AI Breakdown to generate a structured roadmap.
                 </p>
                 <button
@@ -197,14 +197,14 @@ export const ProjectDetailPage: React.FC = () => {
                     setCreateStatus('TODO');
                     setIsCreateOpen(true);
                   }}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-blue- hover:bg-blue- text-white rounded-xl text-xs font-semibold transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold transition-colors cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" /> Create Task
                 </button>
               </div>
             ) : (
               <table className="w-full text-left text-xs">
-                <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200/80 dark:border-slate-800 text-[11px] uppercase font-bold text-slate-400">
+                <thead className="bg-[#FAF6EE] dark:bg-slate-800/60 border-b border-[#E6DACB]/80 dark:border-slate-800 text-[11px] uppercase font-bold text-[#7C6E65]">
                   <tr>
                     <th className="py-3 px-4">Task</th>
                     <th className="py-3 px-4">Status</th>
@@ -220,7 +220,7 @@ export const ProjectDetailPage: React.FC = () => {
                       onClick={() => setSelectedTaskId(task._id)}
                       className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 cursor-pointer transition-colors group"
                     >
-                      <td className="py-3 px-4 font-semibold text-slate-800 dark:text-slate-200 group-hover:text-blue- dark:group-hover:text-blue- transition-colors">
+                      <td className="py-3 px-4 font-semibold text-[#2C1810] dark:text-slate-200 group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
                         {task.title}
                       </td>
                       <td className="py-3 px-4">
@@ -237,15 +237,15 @@ export const ProjectDetailPage: React.FC = () => {
                         {task.assignee ? (
                           <div className="flex items-center gap-2">
                             <Avatar src={task.assignee.avatar} name={task.assignee.name} size="xs" />
-                            <span className="text-slate-700 dark:text-slate-300 truncate max-w-[120px]">
+                            <span className="text-[#4A3B32] dark:text-slate-300 truncate max-w-[120px]">
                               {task.assignee.name}
                             </span>
                           </div>
                         ) : (
-                          <span className="text-slate-400 italic">Unassigned</span>
+                          <span className="text-[#7C6E65] italic">Unassigned</span>
                         )}
                       </td>
-                      <td className="py-3 px-4 text-slate-500">
+                      <td className="py-3 px-4 text-[#7C6E65]">
                         {task.subtasks?.filter((s) => s.completed).length || 0}/{task.subtasks?.length || 0}
                       </td>
                     </tr>
