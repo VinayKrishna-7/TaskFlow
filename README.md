@@ -55,40 +55,6 @@
 
 ---
 
-## 🏗️ Architecture & Data Flow
-
-```mermaid
-graph TD
-    subgraph Client ["React 18 + Vite Frontend (TypeScript)"]
-        UI[Tailwind CSS Dual Theme + Lucide Icons]
-        State[Zustand Stores]
-        Cache[TanStack React Query v5]
-        DnD[dnd-kit 60fps Kanban]
-    end
-
-    subgraph Server ["Express.js + Node.js Backend (TypeScript)"]
-        Routes[Express REST Router]
-        Middleware[JWT Auth, RBAC, Zod Validation, Multer]
-        Services[Task, Project, Workspace, Analytics, AI Services]
-        SocketServer[Socket.IO Gateway]
-    end
-
-    subgraph Data ["Persistence Layer"]
-        Mongo[(MongoDB Database)]
-        LocalDB[(Persistent Embedded DB Fallback)]
-        Uploads[Local / Cloud Attachments]
-    end
-
-    Client -->|REST API + Bearer JWT| Middleware
-    Client <-->|WebSocket Events| SocketServer
-    Middleware --> Services
-    Services --> Mongo
-    Services --> LocalDB
-    Services --> Uploads
-```
-
----
-
 ## 💻 Tech Stack
 
 | Layer | Technology | Details |
@@ -104,41 +70,6 @@ graph TD
 | **Validation** | Zod | End-to-end schema validation |
 | **Testing** | Vitest, Supertest | Full unit and integration test suite |
 | **DevOps** | Docker, Docker Compose | Containerized production deployment |
-
----
-
-## 📁 Repository Structure
-
-```text
-TaskFlow/
-├── client/                     # Frontend Application (React + Vite + TypeScript)
-│   ├── public/                 # Static assets & SVG Favicon
-│   ├── src/
-│   │   ├── components/         # Reusable UI & Feature components
-│   │   │   ├── common/         # Buttons, Inputs, Modals, Navbar, Sidebar, Toasts
-│   │   │   ├── kanban/         # KanbanBoard, KanbanColumn, TaskCard
-│   │   │   └── tasks/          # TaskDetailModal, CreateTaskModal, TimeTracker, Subtasks
-│   │   ├── layouts/            # AppLayout
-│   │   ├── lib/                # Axios, Socket, DateUtils, CN utilities
-│   │   ├── pages/              # Dashboard, Tasks, Projects, Calendar, Team, Settings, Auth
-│   │   ├── routes/             # Lazy-loaded AppRoutes with dynamic titles
-│   │   ├── store/              # Zustand stores (Auth, Theme, Toast, Confirm, Workspace)
-│   │   └── types/              # TypeScript interfaces and models
-│   ├── tailwind.config.js      # Palette tokens (Maroon, Cream, Dark Obsidian, Lighting Blue)
-│   └── vite.config.ts          # Rollup manual chunk vendor code-splitting
-├── server/                     # Backend API (Node.js + Express + TypeScript)
-│   ├── src/
-│   │   ├── config/             # DB connection (MongoDB + Embedded fallback), Sockets
-│   │   ├── controllers/        # Request handlers (Auth, Task, Project, Workspace, Analytics, AI)
-│   │   ├── middleware/         # Auth, RBAC, Error handler, Rate limiter, Uploads
-│   │   ├── models/             # Mongoose schemas (User, Task, Project, Workspace, Notification)
-│   │   ├── routes/             # Express API routes
-│   │   ├── services/           # Business logic & aggregation pipelines
-│   │   └── validators/         # Zod request validators
-│   └── tests/                  # Integration & API tests
-├── docker-compose.yml          # Multi-container full-stack deployment
-└── README.md                   # Project documentation
-```
 
 ---
 
@@ -186,9 +117,6 @@ cp server/.env.example server/.env
 cp client/.env.example client/.env
 ```
 
-*Default environment variables are pre-configured to run out-of-the-box on `http://localhost:5000` (Backend) and `http://localhost:5173` (Frontend).*
-
----
 
 ### 4. (Optional) Seed Sample Data
 
@@ -271,57 +199,5 @@ npm test
 cd client
 npm run build
 ```
-
----
-
-## 📖 API Reference Summary
-
-Interactive Swagger OpenAPI docs are available at `/api-docs`.
-
-### Authentication (`/api/auth`)
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/auth/register` | Register a new user account |
-| `POST` | `/api/auth/login` | Authenticate user (email or username) & return JWTs |
-| `POST` | `/api/auth/refresh` | Rotate and issue new access token |
-| `POST` | `/api/auth/logout` | Revoke active refresh token session |
-| `GET` | `/api/auth/me` | Retrieve authenticated user profile |
-| `PUT` | `/api/auth/profile` | Update display name, username, or avatar |
-| `PUT` | `/api/auth/change-password` | Update account password |
-
-### Workspaces (`/api/workspaces`)
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/workspaces` | Get all workspaces for current user |
-| `POST` | `/api/workspaces` | Create new workspace |
-| `GET` | `/api/workspaces/:id` | Get workspace details & members |
-| `PUT` | `/api/workspaces/:id` | Update workspace settings |
-| `DELETE` | `/api/workspaces/:id` | Delete workspace |
-| `POST` | `/api/workspaces/:id/invite` | Invite team member (by email/username) |
-| `DELETE` | `/api/workspaces/:id/members/:userId` | Remove team member from workspace |
-
-### Projects (`/api/projects`)
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/projects` | List projects with completion stats |
-| `POST` | `/api/projects` | Create project with key identifier |
-| `GET` | `/api/projects/:id` | Get project overview & task stats |
-| `PUT` | `/api/projects/:id` | Update project details |
-| `DELETE` | `/api/projects/:id` | Delete project and associated tasks |
-
-### Tasks & AI Planner (`/api/tasks`, `/api/ai`)
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/tasks` | Query tasks with search, filters & pagination |
-| `POST` | `/api/tasks` | Create new task |
-| `GET` | `/api/tasks/:id` | Get full task detail (subtasks, attachments, logs) |
-| `PUT` | `/api/tasks/:id` | Update task fields |
-| `PUT` | `/api/tasks/:id/move` | Update status & Kanban ordering position |
-| `DELETE` | `/api/tasks/:id` | Delete task |
-| `POST` | `/api/tasks/:id/duplicate` | Clone task |
-| `POST` | `/api/tasks/:id/time` | Log time entry (stopwatch or manual) |
-| `POST` | `/api/ai/breakdown` | AI prompt to structured task generator |
-
----
 
 
