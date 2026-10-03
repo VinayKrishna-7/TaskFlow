@@ -344,7 +344,7 @@ export const CalendarPage: React.FC = () => {
               {effectiveProject && (
                 <button
                   onClick={() => setIsCreateOpen(true)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-maroon-700 dark:text-[#F9CFE2] hover:bg-maroon-50 dark:hover:bg-blue-950/50 rounded-lg transition-colors border border-maroon-200/80 dark:border-[#821946]/60 cursor-pointer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-maroon-700 dark:text-[#F9CFE2] hover:bg-maroon-50 dark:hover:bg-[#38061B]/50 rounded-lg transition-colors border border-maroon-200/80 dark:border-[#821946]/60 cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add Task</span>
@@ -428,7 +428,7 @@ export const CalendarPage: React.FC = () => {
                                   className="p-2.5 bg-maroon-50/50 dark:bg-[#38061B]/30 border border-maroon-200/80 dark:border-[#821946]/60 rounded-xl hover:shadow-xs cursor-pointer transition-all flex items-center justify-between gap-2 group/task"
                                 >
                                   <div className="flex-1 min-w-0">
-                                    <h4 className="text-xs font-semibold text-[#2C1810] dark:text-slate-200 truncate group-hover/task:text-maroon-700 dark:group-hover/task:text-blue-400">
+                                    <h4 className="text-xs font-semibold text-[#2C1810] dark:text-slate-200 truncate group-hover/task:text-maroon-700 dark:group-hover/task:text-[#E66E9F]">
                                       {t.title}
                                     </h4>
                                     <div className="flex items-center gap-2 mt-0.5">

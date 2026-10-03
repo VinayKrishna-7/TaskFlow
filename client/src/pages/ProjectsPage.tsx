@@ -128,7 +128,7 @@ export const ProjectsPage: React.FC = () => {
               <div
                 key={project._id}
                 onClick={() => openProject(project)}
-                className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-blue-500/50 transition-all cursor-pointer group flex flex-col justify-between relative"
+                className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-[#992355]/50 transition-all cursor-pointer group flex flex-col justify-between relative"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">

@@ -47,7 +47,7 @@ export const TaskCard: React.FC<TaskCardProps> = React.memo(({ task, onClick }) 
         'p-3.5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border rounded-2xl shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group active:scale-[0.99] select-none',
         isDragging
           ? 'border-dashed border-maroon-400 dark:border-[#992355] bg-maroon-50/20 dark:bg-[#38061B]/20'
-          : 'border-[#E6DACB]/80 dark:border-slate-800/80 hover:border-maroon-500/50 dark:hover:border-blue-500/50'
+          : 'border-[#E6DACB]/80 dark:border-slate-800/80 hover:border-maroon-500/50 dark:hover:border-[#992355]/50'
       )}
     >
       {/* Top Meta: Priority and Due Date */}

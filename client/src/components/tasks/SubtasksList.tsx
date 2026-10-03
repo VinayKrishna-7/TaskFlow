@@ -109,7 +109,7 @@ export const SubtasksList: React.FC<SubtasksListProps> = ({ taskId, subtasks, on
         <button
           type="submit"
           disabled={isAdding || !newTitle.trim()}
-          className="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-maroon-700 dark:hover:bg-blue-600 hover:text-white dark:hover:text-white text-[#4A3B32] dark:text-slate-200 rounded-xl text-xs font-semibold disabled:opacity-50 transition-colors cursor-pointer"
+          className="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 hover:bg-maroon-700 dark:hover:bg-[#992355] hover:text-white dark:hover:text-white text-[#4A3B32] dark:text-slate-200 rounded-xl text-xs font-semibold disabled:opacity-50 transition-colors cursor-pointer"
         >
           <Plus className="w-3.5 h-3.5" />
         </button>

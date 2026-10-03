@@ -176,7 +176,7 @@ export const AnalyticsPage: React.FC = () => {
                       marginBottom: '4px',
                     }}
                   />
-                  <Bar dataKey="count" fill="#6366f1" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="count" fill={isDark ? '#992355' : '#800020'} radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (

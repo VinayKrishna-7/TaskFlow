@@ -514,7 +514,7 @@ export const TasksPage: React.FC = () => {
               <div
                 key={task._id}
                 onClick={() => setSelectedTaskId(task._id)}
-                className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-blue-500/50 cursor-pointer transition-all space-y-3 group"
+                className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-[#992355]/50 cursor-pointer transition-all space-y-3 group"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5 flex-wrap">

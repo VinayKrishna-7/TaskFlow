@@ -416,7 +416,7 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({
                     setPrompt(item.prompt);
                     handleGenerate(item.prompt);
                   }}
-                  className="px-2.5 py-1 bg-slate-100/80 hover:bg-maroon-50 dark:bg-slate-800/80 dark:hover:bg-blue-950/50 border border-[#E6DACB]/80 dark:border-slate-700/80 hover:border-maroon-200 dark:hover:border-blue-700/60 rounded-lg text-[11px] font-medium text-[#4A3B32] dark:text-slate-300 hover:text-maroon-700 dark:hover:text-[#F9CFE2] transition-all cursor-pointer"
+                  className="px-2.5 py-1 bg-slate-100/80 hover:bg-maroon-50 dark:bg-slate-800/80 dark:hover:bg-[#38061B]/50 border border-[#E6DACB]/80 dark:border-slate-700/80 hover:border-maroon-200 dark:hover:border-[#821946]/60 rounded-lg text-[11px] font-medium text-[#4A3B32] dark:text-slate-300 hover:text-maroon-700 dark:hover:text-[#F9CFE2] transition-all cursor-pointer"
                 >
                   {item.label}
                 </button>
@@ -455,7 +455,7 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({
               {generatedTasks.map((t, index) => (
                 <div
                   key={index}
-                  className="p-3.5 bg-slate-50/70 dark:bg-[#000000] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl flex items-start justify-between gap-3 group hover:border-maroon-200 dark:hover:border-blue-500/50 transition-all shadow-xs"
+                  className="p-3.5 bg-slate-50/70 dark:bg-[#000000] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl flex items-start justify-between gap-3 group hover:border-maroon-200 dark:hover:border-[#992355]/50 transition-all shadow-xs"
                 >
                   <div className="flex-1 min-w-0">
                     {/* Header: Number, Title, and Badges */}

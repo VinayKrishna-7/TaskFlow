@@ -142,7 +142,7 @@ export const DashboardPage: React.FC = () => {
             onClick={() => navigate('/tasks')}
             onKeyDown={(e) => e.key === 'Enter' && navigate('/tasks')}
             title="Click to view all tasks"
-            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-blue-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-[#992355]/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
           >
             <div className="flex items-center gap-3.5 min-w-0">
               <div className="p-3 rounded-xl bg-maroon-50 dark:bg-[#38061B]/50 text-maroon-700 dark:text-[#F9CFE2] border border-maroon-200/80 dark:border-[#821946]/60 group-hover:scale-105 transition-transform flex-shrink-0">
@@ -168,7 +168,7 @@ export const DashboardPage: React.FC = () => {
             onClick={() => navigate('/tasks?status=IN_PROGRESS')}
             onKeyDown={(e) => e.key === 'Enter' && navigate('/tasks?status=IN_PROGRESS')}
             title="Click to view in-progress tasks"
-            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-blue-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-[#992355]/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
           >
             <div className="flex items-center gap-3.5 min-w-0">
               <div className="p-3 rounded-xl bg-maroon-50 dark:bg-[#38061B]/50 text-maroon-700 dark:text-[#F9CFE2] border border-maroon-200/80 dark:border-[#821946]/60 group-hover:scale-105 transition-transform flex-shrink-0">
@@ -337,7 +337,7 @@ export const DashboardPage: React.FC = () => {
                       marginBottom: '4px',
                     }}
                   />
-                  <Bar dataKey="completed" fill="#6366f1" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="completed" fill={isDark ? '#992355' : '#800020'} radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
