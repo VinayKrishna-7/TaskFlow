@@ -49,22 +49,7 @@ export const HomePage: React.FC = () => {
           </Link>
 
           <div className="flex items-center gap-3 sm:gap-4">
-            {isAuthenticated && (
-              <div className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-[#7C6E65] dark:text-slate-400 mr-2">
-                <Link
-                  to="/tasks"
-                  className="px-3 py-1.5 rounded-lg hover:text-[#2C1810] dark:hover:text-slate-100 hover:bg-[#F0E8DC] dark:hover:bg-[#141414] transition-colors"
-                >
-                  Tasks
-                </Link>
-                <Link
-                  to="/projects"
-                  className="px-3 py-1.5 rounded-lg hover:text-[#2C1810] dark:hover:text-slate-100 hover:bg-[#F0E8DC] dark:hover:bg-[#141414] transition-colors"
-                >
-                  Projects
-                </Link>
-              </div>
-            )}
+
 
             <button
               onClick={toggleTheme}
