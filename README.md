@@ -4,27 +4,44 @@ A modern, full-stack project and task management web application built with Reac
 
 TaskFlow helps individuals and teams organize projects, track progress with interactive Kanban boards, generate task breakdowns using AI, and collaborate in real time.
 
----
-
-## Features
-
-- **Dashboard**: High-level overview of workspace metrics, task statuses, completion velocity, and recent activity.
-- **My Tasks**: Unified view of all assigned tasks across projects with real-time search, filters, and list/card toggles.
-- **Kanban Board**: Drag-and-drop task management organized across customizable workflow columns.
-- **AI Task Planner**: Break down project requirements into structured milestones and actionable tasks using AI.
-- **Real-Time Collaboration**: Live synchronization for task updates, status changes, and comments powered by Socket.IO.
-- **Interactive Calendar**: Schedule tasks and track upcoming deadlines with monthly and daily timeline views.
-- **Analytics**: Visual charts for team velocity, priority distributions, and completion rates.
-- **Theme Support**: Clean dark and light modes with persistent user preference.
+<p align="left">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white" alt="Socket.io" />
+</p>
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack & What We Used
 
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, Zustand, Recharts, @dnd-kit
-- **Backend**: Node.js, Express.js, TypeScript, Socket.IO, Mongoose
-- **Database**: MongoDB (supports local MongoDB, MongoDB Atlas, or automatic embedded instance for development)
-- **Authentication**: JWT authentication with persistent sessions and password reset support
+- **Frontend Core**: **React 18**, **TypeScript**, and **Vite** for fast, reactive UI development
+- **UI & Styling**: **Tailwind CSS** with custom dark and light themes, and **Lucide Icons**
+- **State Management**: **Zustand** for lightweight and fast global client state
+- **Kanban Drag & Drop**: **@dnd-kit/core** & **@dnd-kit/sortable** for 60 FPS accessible task drag-and-drop
+- **Charts & Visualizations**: **Recharts** for velocity graphs and continuous 360° task status rings
+- **Backend API**: **Node.js** & **Express.js** (TypeScript) with modular REST architecture
+- **Database & ODM**: **MongoDB** with **Mongoose** (featuring automatic persistent embedded DB fallback)
+- **Real-Time Sockets**: **Socket.IO** for live multi-user board and task updates
+- **AI Task Decomposition**: **Google Gemini AI** for smart project planning and automated task generation
+- **Auth & Security**: **JWT** (JSON Web Tokens) with persistent sessions, bcrypt password hashing, and token reset
+
+---
+
+## 🚀 Key Features
+
+- **Executive Dashboard**: High-level overview of workspace metrics, task velocity, 360° status donut ring, and upcoming deadlines built with **Recharts**. Clickable KPI cards filter tasks instantly.
+- **My Tasks**: Multi-project aggregated task view with instant regex-safe search (by title, #number, labels, assignees) and list/grid card view toggles.
+- **Kanban Board**: Drag-and-drop task management across customizable workflow columns powered by **@dnd-kit**.
+- **AI Project Planner**: Break down project prompts into structured milestones and tasks using **Google Gemini AI**.
+- **Real-Time Synchronization**: Instant multi-client updates for task moves, status changes, and comments with **Socket.IO**.
+- **Interactive Calendar**: Monthly schedule and daily timeline views for tracking deadlines.
+- **Dark & Light Themes**: Obsidian Blue dark theme and Warm Cream light theme built with **Tailwind CSS**.
+- **Authentication & Security**: Secure **JWT** authentication with persistent sessions and password reset support.
 
 ---
 
