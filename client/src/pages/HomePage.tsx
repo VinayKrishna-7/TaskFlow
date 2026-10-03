@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Sun,
   Moon,
-  Github,
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
@@ -108,20 +107,9 @@ export const HomePage: React.FC = () => {
 
       {/* ── Footer ── */}
       <footer className="border-t border-[#E6DACB] dark:border-[#1C1C1C] py-6 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#7C6E65] dark:text-slate-500">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#7C6E65] dark:text-slate-500">
           <span className="font-medium text-[#2C1810] dark:text-slate-300">TaskFlow</span>
-          <div className="flex items-center gap-5">
-            <Link to="/login" className="hover:text-[#800020] dark:hover:text-[#BD326D] transition-colors">Sign in</Link>
-            <Link to="/register" className="hover:text-[#800020] dark:hover:text-[#BD326D] transition-colors">Get started</Link>
-            <a
-              href="https://github.com/VinayKrishna-7/TaskFlow"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 hover:text-[#800020] dark:hover:text-[#BD326D] transition-colors"
-            >
-              <Github className="w-3.5 h-3.5" /> GitHub
-            </a>
-          </div>
+          <span>A simple task and project management tool for teams.</span>
         </div>
       </footer>
 
