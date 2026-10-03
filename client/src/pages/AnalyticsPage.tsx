@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../lib/axios';
 import { useWorkspaceStore } from '../store/workspaceStore';
+import { useThemeStore } from '../store/themeStore';
 import {
   BarChart,
   Bar,
@@ -15,10 +16,17 @@ import {
   Legend,
 } from 'recharts';
 
-const STATUS_COLORS = ['#94a3b8', '#6366f1', '#f59e0b', '#10b981'];
+const STATUS_COLORS = ['#94a3b8', '#3b82f6', '#f59e0b', '#10b981'];
+const STATUS_COLOR_MAP: Record<string, string> = {
+  'To Do': '#94a3b8',
+  'In Progress': '#3b82f6',
+  'In Review': '#f59e0b',
+  'Completed': '#10b981',
+};
 
 export const AnalyticsPage: React.FC = () => {
   const { activeWorkspace } = useWorkspaceStore();
+  const { isDark } = useThemeStore();
 
   const { data: analytics } = useQuery({
     queryKey: ['analytics', 'deep', activeWorkspace?._id],
@@ -40,6 +48,7 @@ export const AnalyticsPage: React.FC = () => {
   };
 
   const tasksByStatus = analytics?.tasksByStatus || [];
+  const filteredTasksByStatus = tasksByStatus.filter((d: any) => d.value > 0);
   const tasksByPriority = analytics?.tasksByPriority || [];
   const teamWorkload = analytics?.teamWorkload || [];
 
@@ -82,28 +91,47 @@ export const AnalyticsPage: React.FC = () => {
             Task Status Breakdown
           </h3>
           <div className="h-64 flex items-center justify-center">
-            {tasksByStatus.length > 0 ? (
+            {filteredTasksByStatus.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
-                    data={tasksByStatus}
+                    data={filteredTasksByStatus}
                     cx="50%"
                     cy="50%"
                     innerRadius={65}
                     outerRadius={90}
-                    paddingAngle={4}
+                    paddingAngle={0}
+                    stroke={isDark ? '#111827' : '#FFFDF9'}
+                    strokeWidth={2}
                     dataKey="value"
                   >
-                    {tasksByStatus.map((_: any, index: number) => (
-                      <Cell key={`status-${index}`} fill={STATUS_COLORS[index % STATUS_COLORS.length]} />
+                    {filteredTasksByStatus.map((entry: any, index: number) => (
+                      <Cell
+                        key={`status-${entry.name || index}`}
+                        fill={STATUS_COLOR_MAP[entry.name] || STATUS_COLORS[index % STATUS_COLORS.length]}
+                      />
                     ))}
                   </Pie>
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#111827',
+                      backgroundColor: isDark ? '#111827' : '#FFFFFF',
+                      borderColor: isDark ? '#374151' : '#E2E8F0',
                       borderRadius: '12px',
-                      border: '1px solid #1f2937',
-                      color: '#f9fafb',
+                      boxShadow: isDark
+                        ? '0 10px 25px -5px rgba(0, 0, 0, 0.5)'
+                        : '0 10px 25px -5px rgba(0, 0, 0, 0.12)',
+                      padding: '8px 12px',
+                    }}
+                    itemStyle={{
+                      color: isDark ? '#F9FAFB' : '#0F172A',
+                      fontWeight: 600,
+                      fontSize: '12px',
+                    }}
+                    labelStyle={{
+                      color: isDark ? '#94A3B8' : '#475569',
+                      fontWeight: 600,
+                      fontSize: '11px',
+                      marginBottom: '4px',
                     }}
                   />
                   <Legend />
@@ -128,10 +156,24 @@ export const AnalyticsPage: React.FC = () => {
                   <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} allowDecimals={false} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#111827',
+                      backgroundColor: isDark ? '#111827' : '#FFFFFF',
+                      borderColor: isDark ? '#374151' : '#E2E8F0',
                       borderRadius: '12px',
-                      border: '1px solid #1f2937',
-                      color: '#f9fafb',
+                      boxShadow: isDark
+                        ? '0 10px 25px -5px rgba(0, 0, 0, 0.5)'
+                        : '0 10px 25px -5px rgba(0, 0, 0, 0.12)',
+                      padding: '8px 12px',
+                    }}
+                    itemStyle={{
+                      color: isDark ? '#F9FAFB' : '#0F172A',
+                      fontWeight: 600,
+                      fontSize: '12px',
+                    }}
+                    labelStyle={{
+                      color: isDark ? '#94A3B8' : '#475569',
+                      fontWeight: 600,
+                      fontSize: '11px',
+                      marginBottom: '4px',
                     }}
                   />
                   <Bar dataKey="count" fill="#6366f1" radius={[6, 6, 0, 0]} />

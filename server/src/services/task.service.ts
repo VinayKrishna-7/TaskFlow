@@ -103,6 +103,7 @@ export class TaskService {
     search?: string;
     label?: string;
     isArchived?: boolean;
+    overdue?: boolean | string;
     dueDateStart?: string;
     dueDateEnd?: string;
     page?: number;
@@ -119,11 +120,55 @@ export class TaskService {
     if (query.assignee) filter.assignee = query.assignee;
     if (query.label) filter.labels = query.label;
 
-    if (query.search) {
-      filter.$or = [
-        { title: { $regex: query.search, $options: 'i' } },
-        { description: { $regex: query.search, $options: 'i' } },
+    if (query.overdue === true || query.overdue === 'true') {
+      filter.status = { $ne: 'COMPLETED' };
+      filter.dueDate = { ...(filter.dueDate || {}), $lt: new Date() };
+    }
+
+    if (query.search && query.search.trim()) {
+      const trimmedSearch = query.search.trim();
+      const escaped = trimmedSearch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const orConditions: any[] = [
+        { title: { $regex: escaped, $options: 'i' } },
+        { description: { $regex: escaped, $options: 'i' } },
+        { labels: { $regex: escaped, $options: 'i' } },
       ];
+
+      const numMatch = trimmedSearch.match(/\d+/);
+      if (numMatch) {
+        const num = parseInt(numMatch[0], 10);
+        if (!isNaN(num)) {
+          orConditions.push({ taskNumber: num });
+        }
+      }
+
+      // Check matching projects (by name or key)
+      const projectFilter: any = {
+        $or: [
+          { name: { $regex: escaped, $options: 'i' } },
+          { key: { $regex: escaped, $options: 'i' } },
+        ],
+      };
+      if (query.workspace) {
+        projectFilter.workspace = query.workspace;
+      }
+      const matchingProjects = await Project.find(projectFilter).select('_id').lean();
+      if (matchingProjects.length > 0) {
+        orConditions.push({ project: { $in: matchingProjects.map((p) => p._id) } });
+      }
+
+      // Check matching assignees
+      const matchingUsers = await User.find({
+        $or: [
+          { name: { $regex: escaped, $options: 'i' } },
+          { username: { $regex: escaped, $options: 'i' } },
+        ],
+      }).select('_id').lean();
+      if (matchingUsers.length > 0) {
+        orConditions.push({ assignee: { $in: matchingUsers.map((u) => u._id) } });
+      }
+
+      filter.$or = orConditions;
     }
 
     if (query.dueDateStart || query.dueDateEnd) {

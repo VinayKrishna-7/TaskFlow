@@ -153,10 +153,11 @@ export const RegisterPage: React.FC = () => {
             </div>
             {isEmailConflict && (
               <Link
-                to="/login"
-                className="inline-flex items-center justify-center w-full py-2 px-3 mt-1 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-colors shadow-xs"
+                to={`/login?email=${encodeURIComponent(email.trim().toLowerCase())}`}
+                state={{ email: email.trim().toLowerCase() }}
+                className="inline-flex items-center justify-center w-full py-2.5 px-3 mt-1 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-colors shadow-xs"
               >
-                Sign in to existing account &rarr;
+                Sign in with this email &rarr;
               </Link>
             )}
           </div>

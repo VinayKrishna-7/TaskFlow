@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import {
   LayoutDashboard,
   CheckSquare,
@@ -35,15 +35,23 @@ export const Sidebar: React.FC = () => {
   return (
     <aside className="w-64 border-r border-[#E6DACB] dark:border-slate-800/80 bg-[#FAF6EE] dark:bg-[#0B0F17] flex flex-col h-screen sticky top-0">
       {/* Brand Header */}
-      <div className="h-16 px-6 border-b border-[#E6DACB] dark:border-slate-800/80 flex items-center gap-3">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-blue-600 dark:via-blue-500 dark:to-cyan-600 flex items-center justify-center text-[#FFFDF9] font-bold shadow-md shadow-maroon-900/25 dark:shadow-blue-500/25">
+      <Link
+        to="/dashboard"
+        title="Go to Dashboard"
+        className="h-16 px-6 border-b border-[#E6DACB] dark:border-slate-800/80 flex items-center gap-3 hover:bg-[#F3ECE2]/60 dark:hover:bg-slate-800/40 transition-all cursor-pointer group select-none"
+      >
+        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-blue-600 dark:via-blue-500 dark:to-cyan-600 flex items-center justify-center text-[#FFFDF9] font-bold shadow-md shadow-maroon-900/25 dark:shadow-blue-500/25 group-hover:scale-105 transition-transform">
           <Layers className="w-5 h-5" />
         </div>
         <div>
-          <h1 className="text-base font-bold text-[#2C1810] dark:text-slate-100 tracking-tight">TaskFlow</h1>
-          <p className="text-[10px] font-semibold text-maroon-600 dark:text-blue-400 uppercase tracking-wider">Task Management</p>
+          <h1 className="text-base font-bold text-[#2C1810] dark:text-slate-100 tracking-tight group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
+            TaskFlow
+          </h1>
+          <p className="text-[10px] font-semibold text-maroon-600 dark:text-blue-400 uppercase tracking-wider">
+            Task Management
+          </p>
         </div>
-      </div>
+      </Link>
 
       {/* Navigation Links */}
       <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">

@@ -9,19 +9,32 @@ export const ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [resetToken, setResetToken] = useState('');
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanEmail = email.trim().toLowerCase();
+    if (!cleanEmail) {
+      setError('Please enter your email address.');
+      return;
+    }
+
     setIsLoading(true);
+    setError('');
+
     try {
-      const res = await api.post('/auth/forgot-password', { email });
+      const res = await api.post('/auth/forgot-password', { email: cleanEmail });
       setIsSubmitted(true);
-      if (res.data.data?.resetToken) {
+      if (res.data?.data?.resetToken) {
         setResetToken(res.data.data.resetToken);
       }
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      console.error('Forgot password error:', err);
+      setError(
+        err.response?.data?.message ||
+        'Unable to process password reset request. Please check your email address.'
+      );
     } finally {
       setIsLoading(false);
     }
@@ -42,23 +55,39 @@ export const ForgotPasswordPage: React.FC = () => {
           </p>
         </div>
 
+        {error && (
+          <div className="p-3.5 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 rounded-xl text-xs font-semibold text-rose-600 dark:text-rose-400">
+            {error}
+          </div>
+        )}
+
         {isSubmitted ? (
           <div className="space-y-4">
-            <div className="p-4 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs text-emerald-800 dark:text-emerald-200 space-y-2">
-              <p className="font-semibold">Reset instructions sent!</p>
-              <p>Check your email for the reset link.</p>
+            <div className="p-4 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs text-emerald-800 dark:text-emerald-200 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="text-base">📧</span>
+                <p className="font-bold">Reset instructions generated!</p>
+              </div>
+              <p className="text-[11px] leading-relaxed">
+                An email has been sent to <strong>{email}</strong> with your password reset instructions.
+              </p>
               {resetToken && (
-                <div className="pt-2 border-t border-emerald-200 dark:border-emerald-800">
-                  <p className="text-[10px] text-[#7C6E65] mb-1">Password Reset Token:</p>
-                  <code className="block p-1.5 bg-[#FFFDF9] dark:bg-[#111827] rounded text-[11px] font-mono break-all select-all">
-                    {resetToken}
-                  </code>
+                <div className="pt-2 border-t border-emerald-200/80 dark:border-emerald-800/80 space-y-2">
+                  <p className="text-[11px] font-semibold text-emerald-900 dark:text-emerald-300">
+                    Direct Reset Action:
+                  </p>
                   <Link
-                    to={`/reset-password?token=${resetToken}`}
-                    className="inline-block mt-2 text-xs font-bold text-maroon-700 dark:text-blue-300 underline"
+                    to={`/reset-password?token=${resetToken}&email=${encodeURIComponent(email)}`}
+                    className="inline-flex items-center justify-center w-full py-2.5 px-3 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition-all shadow-xs"
                   >
-                    Click to proceed to reset password &rarr;
+                    Click to Reset Password Now &rarr;
                   </Link>
+                  <div className="pt-1">
+                    <p className="text-[10px] text-[#7C6E65] mb-0.5">Or use Reset Token manually:</p>
+                    <code className="block p-1.5 bg-[#FFFDF9] dark:bg-[#111827] border border-emerald-200 dark:border-emerald-900 rounded text-[11px] font-mono break-all select-all">
+                      {resetToken}
+                    </code>
+                  </div>
                 </div>
               )}
             </div>

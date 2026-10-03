@@ -33,3 +33,46 @@
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+/* Recharts tooltip styling for high contrast in all themes */
+.recharts-default-tooltip {
+  border-radius: 12px !important;
+  font-family: inherit !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25) !important;
+}
+
+.dark .recharts-default-tooltip {
+  background-color: #111827 !important;
+  border: 1px solid #374151 !important;
+  color: #f9fafb !important;
+}
+
+.dark .recharts-tooltip-item {
+  color: #f9fafb !important;
+  font-weight: 600 !important;
+}
+
+.dark .recharts-tooltip-label {
+  color: #9ca3af !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+}
+
+:not(.dark) .recharts-default-tooltip {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #1e293b !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+:not(.dark) .recharts-tooltip-item {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+:not(.dark) .recharts-tooltip-label {
+  color: #64748b !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+}

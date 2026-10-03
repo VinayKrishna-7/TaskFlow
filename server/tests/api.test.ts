@@ -14,6 +14,7 @@ let taskId: string;
 import { connectDB, disconnectDB } from '../src/config/db';
 
 beforeAll(async () => {
+  process.env.MONGO_URI = 'mongodb://127.0.0.1:27017/taskflow_test';
   await connectDB();
   const collections = mongoose.connection.collections;
   for (const key in collections) {

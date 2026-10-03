@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { ApiResponse } from '../utils/apiResponse';
 import { User } from '../models/User';
 import { AppError } from '../utils/appError';
+import { EmailService } from '../services/email.service';
 
 export class AuthController {
   static async register(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
@@ -99,10 +100,18 @@ export class AuthController {
   static async forgotPassword(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
       const { email } = req.body;
-      const { resetToken } = await AuthService.forgotPassword(email);
-      // In development or when email service is mock, we return resetToken for convenient testing
-      ApiResponse.success(res, 'If an account exists, a reset instructions token was generated', {
+      const { resetToken, user } = await AuthService.forgotPassword(email);
+
+      // Dispatch password reset email with direct link
+      await EmailService.sendPasswordResetEmail(user.email, user.name, resetToken);
+
+      const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+      const resetUrl = `${clientUrl}/reset-password?token=${resetToken}&email=${encodeURIComponent(user.email)}`;
+
+      ApiResponse.success(res, `Password reset instructions have been sent to ${user.email}`, {
+        email: user.email,
         resetToken: process.env.NODE_ENV !== 'production' ? resetToken : undefined,
+        resetUrl: process.env.NODE_ENV !== 'production' ? resetUrl : undefined,
       });
     } catch (error) {
       next(error);

@@ -57,7 +57,7 @@ export class AuthService {
 
     const refreshTokenString = generateRefreshTokenString();
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 7); // 7 days
+    expiresAt.setDate(expiresAt.getDate() + 30); // 30 days
 
     await RefreshToken.create({
       token: refreshTokenString,
@@ -81,9 +81,15 @@ export class AuthService {
       ? { email: trimmedIdentifier }
       : { username: trimmedIdentifier };
 
-    const user = await User.findOne(query).select('+password');
+    const user = await User.findOne({
+      $or: [
+        { email: trimmedIdentifier },
+        { username: trimmedIdentifier },
+      ],
+    }).select('+password');
+
     if (!user) {
-      throw AppError.unauthorized('No account found with this email. Please check your email or create an account.');
+      throw AppError.unauthorized('No account found with this email or username. Please check your credentials or register once.');
     }
 
     if (!user.isActive) {
@@ -92,7 +98,7 @@ export class AuthService {
 
     const isMatch = await user.comparePassword(candidatePass);
     if (!isMatch) {
-      throw AppError.unauthorized('Incorrect password. Please try again or click Forgot password?.');
+      throw AppError.unauthorized('Incorrect password. Please try again or click "Forgot password?" to reset it.');
     }
 
     user.lastLogin = new Date();
@@ -107,7 +113,7 @@ export class AuthService {
 
     const refreshTokenString = generateRefreshTokenString();
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 7);
+    expiresAt.setDate(expiresAt.getDate() + 30); // 30 days
 
     await RefreshToken.create({
       token: refreshTokenString,
@@ -143,7 +149,7 @@ export class AuthService {
     // Token rotation
     const newRefreshTokenString = generateRefreshTokenString();
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 7);
+    expiresAt.setDate(expiresAt.getDate() + 30); // 30 days
 
     tokenDoc.isRevoked = true;
     tokenDoc.replacedByToken = newRefreshTokenString;
@@ -171,11 +177,21 @@ export class AuthService {
     }
   }
 
-  static async forgotPassword(email: string): Promise<{ resetToken: string }> {
-    const user = await User.findOne({ email: email.toLowerCase() });
+  static async forgotPassword(email: string): Promise<{ resetToken: string; user: IUser }> {
+    const normalizedEmail = (email || '').toLowerCase().trim();
+    if (!normalizedEmail) {
+      throw AppError.badRequest('Please enter your email address');
+    }
+
+    const user = await User.findOne({
+      $or: [
+        { email: normalizedEmail },
+        { username: normalizedEmail },
+      ],
+    });
+
     if (!user) {
-      // Return success anyway for security timing attack prevention
-      return { resetToken: '' };
+      throw AppError.notFound('No account found with this email address. Please make sure you entered the correct email or sign up.');
     }
 
     const rawResetToken = crypto.randomBytes(32).toString('hex');
@@ -183,7 +199,7 @@ export class AuthService {
     user.passwordResetExpires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
     await user.save();
 
-    return { resetToken: rawResetToken };
+    return { resetToken: rawResetToken, user };
   }
 
   static async resetPassword(token: string, newPass: string): Promise<void> {

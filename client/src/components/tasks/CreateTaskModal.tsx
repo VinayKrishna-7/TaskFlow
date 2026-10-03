@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../common/Modal';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
-import { TaskPriority, TaskStatus, IUser } from '../../types';
+import { TaskPriority, TaskStatus, IUser, IProject } from '../../types';
 import { api } from '../../lib/axios';
 import { useQueryClient } from '@tanstack/react-query';
 import { toast } from '../../store/toastStore';
@@ -11,6 +11,7 @@ interface CreateTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
   projectId: string;
+  projects?: IProject[];
   workspaceId: string;
   defaultStatus?: TaskStatus;
   members?: IUser[];
@@ -21,11 +22,13 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
   isOpen,
   onClose,
   projectId,
+  projects,
   workspaceId,
   defaultStatus = 'TODO',
   members = [],
   defaultDueDate,
 }) => {
+  const [selectedProjectId, setSelectedProjectId] = useState(projectId || '');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState<TaskStatus>(defaultStatus);
@@ -44,6 +47,20 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
     }
   }, [defaultDueDate, isOpen]);
 
+  React.useEffect(() => {
+    if (projectId) {
+      setSelectedProjectId(projectId);
+    } else if (projects && projects.length > 0) {
+      setSelectedProjectId(projects[0]._id);
+    }
+  }, [projectId, projects, isOpen]);
+
+  const effectiveProjectId = selectedProjectId || projectId || (projects?.[0]?._id ?? '');
+  const currentMembers =
+    (projects?.find((p) => p._id === effectiveProjectId)?.members?.length
+      ? projects.find((p) => p._id === effectiveProjectId)?.members
+      : members) || [];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) return;
@@ -51,7 +68,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
     setIsSubmitting(true);
     try {
       await api.post('/tasks', {
-        project: projectId,
+        project: effectiveProjectId,
         workspace: workspaceId,
         title: title.trim(),
         description: description.trim(),
@@ -91,6 +108,25 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Create New Task" maxWidth="lg">
       <form onSubmit={handleSubmit} className="space-y-4">
+        {projects && projects.length > 1 && (
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300 mb-1.5">
+              Project <span className="text-rose-500">*</span>
+            </label>
+            <select
+              value={effectiveProjectId}
+              onChange={(e) => setSelectedProjectId(e.target.value)}
+              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+            >
+              {projects.map((proj) => (
+                <option key={proj._id} value={proj._id}>
+                  {proj.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
         <Input
           label="Task Title"
           required
@@ -157,7 +193,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
               className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
             >
               <option value="">Unassigned</option>
-              {members.map((m) => (
+              {currentMembers.map((m) => (
                 <option key={m._id} value={m._id}>
                   {m.name} ({m.username})
                 </option>

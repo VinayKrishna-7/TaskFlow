@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useLocation, useSearchParams, Link } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import { useWorkspaceStore } from '../store/workspaceStore';
 import { api } from '../lib/axios';
@@ -11,6 +11,8 @@ export const LoginPage: React.FC = () => {
   const { setAuth, isAuthenticated } = useAuthStore();
   const { setWorkspaces, setActiveWorkspace } = useWorkspaceStore();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
 
   // 1. Auto Sign-In: If already authenticated, redirect straight to dashboard
   useEffect(() => {
@@ -19,9 +21,10 @@ export const LoginPage: React.FC = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  // 2. Remember Me: Restore remembered user login details
+  // 2. Remember Me & Passed Email pre-fill
+  const passedEmail = (location.state as any)?.email || searchParams.get('email') || '';
   const savedRememberMe = localStorage.getItem('taskflow_remember_me') !== 'false';
-  const savedLogin = localStorage.getItem('taskflow_remember_login') || '';
+  const savedLogin = passedEmail || localStorage.getItem('taskflow_remember_login') || '';
 
   const [emailOrUsername, setEmailOrUsername] = useState(savedLogin);
   const [password, setPassword] = useState('');
@@ -30,6 +33,12 @@ export const LoginPage: React.FC = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const passwordInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (passedEmail) {
+      setEmailOrUsername(passedEmail);
+    }
+  }, [passedEmail]);
 
   useEffect(() => {
     if (savedLogin && passwordInputRef.current) {
@@ -124,23 +133,10 @@ export const LoginPage: React.FC = () => {
               <span className="flex-1 leading-relaxed">{error}</span>
             </div>
 
-            {/* Direct 1-Click Solution for Non-Existent Account */}
-            {(error.toLowerCase().includes('no account') ||
-              error.toLowerCase().includes('create an account') ||
-              error.toLowerCase().includes('not found')) && (
-              <div className="pt-1">
-                <Link
-                  to="/register"
-                  className="inline-flex items-center justify-center w-full py-2 px-3 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-colors shadow-xs"
-                >
-                  Create an account now &rarr;
-                </Link>
-              </div>
-            )}
-
-            {/* Direct 1-Click Solution for Incorrect Password */}
+            {/* Solution for Incorrect Password or Reset */}
             {(error.toLowerCase().includes('incorrect password') ||
-              error.toLowerCase().includes('forgot password')) && (
+              error.toLowerCase().includes('forgot password') ||
+              error.toLowerCase().includes('credentials')) && (
               <div className="pt-1 flex items-center justify-between">
                 <span className="text-[11px] text-[#7C6E65] dark:text-slate-400">Can't remember your password?</span>
                 <Link
