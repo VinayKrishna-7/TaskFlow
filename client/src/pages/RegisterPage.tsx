@@ -134,9 +134,11 @@ export const RegisterPage: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#FAF6EE] dark:bg-[#000000]">
       <div className="w-full max-w-md bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl shadow-xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-8 space-y-6">
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-[#BD326D] dark:via-[#992355] dark:to-[#6B1439] flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25">
-            <Layers className="w-6 h-6" />
-          </div>
+          <Link to="/" title="Back to Home" className="inline-block group cursor-pointer">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-[#BD326D] dark:via-[#992355] dark:to-[#6B1439] flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25 group-hover:scale-105 transition-transform">
+              <Layers className="w-6 h-6" />
+            </div>
+          </Link>
           <h2 className="text-2xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">
             Create an account
           </h2>

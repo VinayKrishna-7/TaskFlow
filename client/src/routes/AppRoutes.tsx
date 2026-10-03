@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AppLayout } from '../layouts/AppLayout';
 
 // Lazy-loaded pages for fast initial bundle and zero-lag loading
+const HomePage = lazy(() => import('../pages/HomePage').then((m) => ({ default: m.HomePage })));
 const LoginPage = lazy(() => import('../pages/LoginPage').then((m) => ({ default: m.LoginPage })));
 const RegisterPage = lazy(() => import('../pages/RegisterPage').then((m) => ({ default: m.RegisterPage })));
 const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage').then((m) => ({ default: m.ForgotPasswordPage })));
@@ -29,7 +30,7 @@ export const AppRoutes: React.FC = () => {
 
   useEffect(() => {
     const path = location.pathname.toLowerCase();
-    let pageTitle = 'TaskFlow — Project & Task Management';
+    let pageTitle = 'TaskFlow — Smart Project & Task Management';
     if (path.includes('/dashboard')) pageTitle = 'Dashboard · TaskFlow';
     else if (path.includes('/tasks')) pageTitle = 'My Tasks · TaskFlow';
     else if (path.includes('/projects')) pageTitle = 'Projects · TaskFlow';
@@ -41,6 +42,7 @@ export const AppRoutes: React.FC = () => {
     else if (path.includes('/register')) pageTitle = 'Create Account · TaskFlow';
     else if (path.includes('/forgot-password')) pageTitle = 'Forgot Password · TaskFlow';
     else if (path.includes('/reset-password')) pageTitle = 'Reset Password · TaskFlow';
+    else if (path === '/') pageTitle = 'TaskFlow — Modern Task Management';
     
     document.title = pageTitle;
   }, [location]);
@@ -48,24 +50,24 @@ export const AppRoutes: React.FC = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        {/* Public Auth Routes */}
+        {/* Public Landing & Auth Routes */}
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-        {/* Protected SaaS Layout */}
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<Navigate to="/dashboard" replace />} />
-          <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="tasks" element={<TasksPage />} />
-          <Route path="projects" element={<ProjectsPage />} />
-          <Route path="projects/:id/*" element={<ProjectDetailPage />} />
-          <Route path="calendar" element={<CalendarPage />} />
-          <Route path="team" element={<TeamPage />} />
-          <Route path="analytics" element={<AnalyticsPage />} />
-          <Route path="profile" element={<SettingsPage />} />
-          <Route path="settings" element={<SettingsPage />} />
+        {/* Protected SaaS App Layout */}
+        <Route element={<AppLayout />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/:id/*" element={<ProjectDetailPage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/analytics" element={<AnalyticsPage />} />
+          <Route path="/profile" element={<SettingsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Route>
 
         {/* 404 Fallback */}
