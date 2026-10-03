@@ -36,8 +36,8 @@ export const Sidebar: React.FC = () => {
     <aside className="w-64 border-r border-[#E6DACB] dark:border-[#1F1F1F] bg-[#FAF6EE] dark:bg-[#000000] flex flex-col h-screen sticky top-0">
       {/* Brand Header */}
       <Link
-        to="/dashboard"
-        title="Go to Dashboard"
+        to="/"
+        title="Go to Home"
         className="h-16 px-6 border-b border-[#E6DACB] dark:border-[#1F1F1F] flex items-center gap-3 hover:bg-[#F3ECE2]/60 dark:hover:bg-[#121212] transition-all cursor-pointer group select-none"
       >
         <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-[#BD326D] dark:via-[#992355] dark:to-[#6B1439] flex items-center justify-center text-[#FFFDF9] font-bold shadow-md shadow-maroon-900/25 dark:shadow-[#992355]/30 group-hover:scale-105 transition-transform">
