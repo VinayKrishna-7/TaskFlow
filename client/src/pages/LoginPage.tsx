@@ -26,7 +26,7 @@ export const LoginPage: React.FC = () => {
   const savedRememberMe = localStorage.getItem('taskflow_remember_me') !== 'false';
   const savedLogin = passedEmail || localStorage.getItem('taskflow_remember_login') || '';
 
-  const [emailOrUsername, setEmailOrUsername] = useState(savedLogin);
+  const [email, setEmail] = useState(savedLogin);
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(savedRememberMe);
@@ -36,7 +36,7 @@ export const LoginPage: React.FC = () => {
 
   useEffect(() => {
     if (passedEmail) {
-      setEmailOrUsername(passedEmail);
+      setEmail(passedEmail);
     }
   }, [passedEmail]);
 
@@ -50,9 +50,15 @@ export const LoginPage: React.FC = () => {
     e.preventDefault();
     setError('');
 
-    const trimmedIdentifier = emailOrUsername.trim();
-    if (!trimmedIdentifier) {
-      setError('Please enter your email address or username.');
+    const trimmedEmail = email.trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!trimmedEmail) {
+      setError('Please enter your email address.');
+      return;
+    }
+    if (!emailRegex.test(trimmedEmail)) {
+      setError('Please enter a valid email address (e.g. name@example.com).');
       return;
     }
     if (!password) {
@@ -64,7 +70,8 @@ export const LoginPage: React.FC = () => {
 
     try {
       const res = await api.post('/auth/login', {
-        emailOrUsername: trimmedIdentifier,
+        email: trimmedEmail,
+        emailOrUsername: trimmedEmail,
         password,
       });
 
@@ -74,7 +81,7 @@ export const LoginPage: React.FC = () => {
       // Save or remove remembered login details
       localStorage.setItem('taskflow_remember_me', rememberMe ? 'true' : 'false');
       if (rememberMe) {
-        localStorage.setItem('taskflow_remember_login', trimmedIdentifier);
+        localStorage.setItem('taskflow_remember_login', trimmedEmail);
       } else {
         localStorage.removeItem('taskflow_remember_login');
       }
@@ -154,17 +161,18 @@ export const LoginPage: React.FC = () => {
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300 mb-1.5">
-              Email Address <span className="normal-case font-normal text-[#7C6E65]">(or username)</span>
+              Email Address
             </label>
             <input
-              type="text"
+              type="email"
               required
-              value={emailOrUsername}
+              autoComplete="email"
+              value={email}
               onChange={(e) => {
-                setEmailOrUsername(e.target.value);
+                setEmail(e.target.value);
                 if (error) setError('');
               }}
-              placeholder="you@company.com"
+              placeholder="name@company.com"
               className={`w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#111827] border rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all shadow-xs ${
                 error.toLowerCase().includes('email') || error.toLowerCase().includes('account')
                   ? 'border-rose-300 dark:border-blue-800 focus:ring-rose-500/40 focus:border-rose-500'

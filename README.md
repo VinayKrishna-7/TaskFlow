@@ -9,10 +9,7 @@ TaskFlow helps individuals and teams organize projects, track progress with inte
 > [!NOTE]
 > **Live Demo Wake-Up Note**: The application is hosted on Render's free tier. If the website has not been visited recently, the cloud instance automatically enters a sleep state to conserve resources. The initial visit may take **30–50 seconds** to wake up the backend server. Once active, it operates seamlessly and fast.
 
-### 👤 Demo Login Credentials
-- **Admin**: `admin@taskflow.dev` &nbsp;|&nbsp; Password: `Password123!`
-- **Project Manager**: `manager@taskflow.dev` &nbsp;|&nbsp; Password: `Password123!`
-*(Or click "Create account" to register a new account)*
+Users can click **Create account** on the sign-in page to register with their email address, initialize a personal workspace, and start managing projects.
 
 <p align="left">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
