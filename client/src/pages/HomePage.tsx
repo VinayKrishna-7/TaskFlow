@@ -7,32 +7,12 @@ import {
   ArrowRight,
   Sun,
   Moon,
-  Kanban,
-  Sparkles,
-  Users,
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const { user, isAuthenticated } = useAuthStore();
   const { isDark, toggleTheme } = useThemeStore();
 
-  const highlights = [
-    {
-      icon: <Kanban className="w-5 h-5 text-maroon-600 dark:text-[#E66E9F]" />,
-      title: 'Simple Boards',
-      desc: 'Drag tasks effortlessly across To Do, In Progress, and Done with an intuitive visual board.',
-    },
-    {
-      icon: <Sparkles className="w-5 h-5 text-maroon-600 dark:text-[#E66E9F]" />,
-      title: 'AI Helper',
-      desc: 'Turn project goals into structured task lists, checklists, and action plans in seconds.',
-    },
-    {
-      icon: <Users className="w-5 h-5 text-maroon-600 dark:text-[#E66E9F]" />,
-      title: 'Work Together',
-      desc: 'Invite your teammates, assign tasks, and collaborate live in real time with zero clutter.',
-    },
-  ];
 
   return (
     <div className="min-h-screen w-full flex flex-col justify-between bg-[#FAF6EE] dark:bg-[#000000] text-[#2C1810] dark:text-slate-100 transition-colors overflow-x-hidden selection:bg-maroon-600/20 selection:text-maroon-800 dark:selection:bg-[#992355]/30 dark:selection:text-[#F9CFE2]">
@@ -159,29 +139,6 @@ export const HomePage: React.FC = () => {
           </p>
         )}
 
-        {/* ── Feature Highlights (Responsive cards for mobile & desktop) ── */}
-        <div className="w-full max-w-4xl mt-10 sm:mt-16 pt-6 sm:pt-10 border-t border-[#E6DACB] dark:border-[#242424]">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-8 text-left">
-            {highlights.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-3.5 sm:p-0 rounded-xl sm:rounded-none border sm:border-0 border-[#E6DACB]/80 dark:border-[#242424] bg-white/40 dark:bg-[#0D0D0D]/50 sm:bg-transparent sm:dark:bg-transparent flex sm:flex-col items-start gap-3 sm:gap-2"
-              >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-xl bg-maroon-50 dark:bg-[#38061B]/60 border border-maroon-200/60 dark:border-[#821946]/50 flex items-center justify-center mt-0.5 sm:mt-0">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-[#1A0D08] dark:text-slate-100">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#7C6E65] dark:text-slate-400 leading-relaxed mt-0.5 sm:mt-1">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </main>
 
       {/* ── Footer ── */}
