@@ -48,7 +48,7 @@ Users can create an account using their **email address**, set up workspaces, in
 - **Executive Dashboard**: Visual metrics for task velocity, deadlines, and a continuous 360° completion donut chart.
 - **Calendar & Timeline**: Plan and track deliverables on a month/day timeline with overdue indicators.
 - **Secure Email Authentication**: JWT authentication with 30-day session persistence and password reset.
-- **Light & Dark Themes**: Obsidian Blue dark mode and Warm Cream light mode with zero screen flicker.
+- **Light & Dark Themes**: Pure Dark Black with Plum accent dark mode and Warm Cream light mode with zero screen flicker.
 - **Mobile Friendly**: Designed to look clean and work smoothly on phones, tablets, and desktops.
 
 ---
