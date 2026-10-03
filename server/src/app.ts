@@ -32,10 +32,28 @@ app.use(
 );
 
 // CORS configuration
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+const rawClientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+const configuredOrigins = rawClientUrl
+  .split(',')
+  .map((u) => u.trim().replace(/\/$/, ''))
+  .concat(['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000']);
+
 app.use(
   cors({
-    origin: [clientUrl, 'http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      const normalized = origin.replace(/\/$/, '');
+      if (
+        configuredOrigins.includes(normalized) ||
+        normalized.endsWith('.onrender.com') ||
+        normalized.endsWith('.vercel.app') ||
+        normalized.endsWith('.netlify.app') ||
+        process.env.NODE_ENV !== 'production'
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],

@@ -228,6 +228,37 @@ export const LoginPage: React.FC = () => {
           <Button type="submit" className="w-full" isLoading={isLoading}>
             Sign In
           </Button>
+
+          {/* Quick Demo Access for Interviewers / Reviewers */}
+          <div className="pt-2 border-t border-[#E6DACB]/60 dark:border-slate-800/80">
+            <p className="text-[11px] font-semibold text-center text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">
+              Quick Demo Access
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setEmailOrUsername('admin@taskflow.dev');
+                  setPassword('Password123!');
+                  if (error) setError('');
+                }}
+                className="py-1.5 px-2 text-xs font-medium rounded-lg bg-[#FAF6EE] dark:bg-slate-800 border border-[#E6DACB] dark:border-slate-700 hover:bg-[#F3ECE0] dark:hover:bg-slate-700/80 text-[#2C1810] dark:text-slate-200 transition-colors text-center cursor-pointer shadow-2xs"
+              >
+                👤 Admin Demo
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmailOrUsername('manager@taskflow.dev');
+                  setPassword('Password123!');
+                  if (error) setError('');
+                }}
+                className="py-1.5 px-2 text-xs font-medium rounded-lg bg-[#FAF6EE] dark:bg-slate-800 border border-[#E6DACB] dark:border-slate-700 hover:bg-[#F3ECE0] dark:hover:bg-slate-700/80 text-[#2C1810] dark:text-slate-200 transition-colors text-center cursor-pointer shadow-2xs"
+              >
+                👩‍💼 Manager Demo
+              </button>
+            </div>
+          </div>
         </form>
 
         <p className="text-xs text-center text-[#7C6E65] dark:text-slate-400 pt-2 border-t border-[#E6DACB]/60 dark:border-slate-800/80">
