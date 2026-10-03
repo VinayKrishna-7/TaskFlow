@@ -4,6 +4,16 @@ A modern, full-stack project and task management web application built with Reac
 
 TaskFlow helps individuals and teams organize projects, track progress with interactive Kanban boards, generate task breakdowns using AI, and collaborate in real time.
 
+🔗 **Live Demo**: [https://taskflow-1-p7yr.onrender.com](https://taskflow-1-p7yr.onrender.com)
+
+> [!NOTE]
+> **Live Demo Wake-Up Note**: The application is hosted on Render's free tier. If the website has not been visited recently, the cloud instance automatically enters a sleep state to conserve resources. The initial visit may take **30–50 seconds** to wake up the backend server. Once active, it operates seamlessly and fast.
+
+### 👤 Demo Login Credentials
+- **Admin**: `admin@taskflow.dev` &nbsp;|&nbsp; Password: `Password123!`
+- **Project Manager**: `manager@taskflow.dev` &nbsp;|&nbsp; Password: `Password123!`
+*(Or click "Create account" to register a new account)*
+
 <p align="left">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
