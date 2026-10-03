@@ -48,5 +48,7 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "author": "Vinay Krishna (https://github.com/VinayKrishna-7)",
+  "license": "MIT"
 }

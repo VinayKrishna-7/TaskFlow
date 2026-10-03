@@ -1,8 +1,31 @@
 {
   "name": "taskflow-workspace",
   "version": "1.0.0",
-  "description": "TaskFlow - Production-Grade Full-Stack MERN Task Management Platform",
+  "description": "TaskFlow - Modern Full-Stack MERN Project & Task Management Platform",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VinayKrishna-7/TaskFlow.git"
+  },
+  "keywords": [
+    "taskflow",
+    "task-management",
+    "kanban",
+    "react",
+    "typescript",
+    "nodejs",
+    "express",
+    "mongodb",
+    "socket-io",
+    "gemini-ai",
+    "tailwind-css"
+  ],
+  "author": "Vinay Krishna (https://github.com/VinayKrishna-7)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VinayKrishna-7/TaskFlow/issues"
+  },
+  "homepage": "https://github.com/VinayKrishna-7/TaskFlow#readme",
   "scripts": {
     "install:all": "npm install && cd server && npm install && cd ../client && npm install",
     "dev:server": "cd server && npm run dev",
@@ -19,7 +42,5 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
-  },
-  "author": "TaskFlow Engineering",
-  "license": "MIT"
+  }
 }
