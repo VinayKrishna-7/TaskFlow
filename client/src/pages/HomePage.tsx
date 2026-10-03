@@ -8,34 +8,7 @@ import {
   Sun,
   Moon,
   Github,
-  Kanban,
-  Sparkles,
-  BarChart3,
-  Users,
 } from 'lucide-react';
-
-const features = [
-  {
-    icon: Kanban,
-    title: 'Simple Boards',
-    desc: 'Move tasks from To Do to Done with a clean drag-and-drop board.',
-  },
-  {
-    icon: Sparkles,
-    title: 'AI Helper',
-    desc: 'Type a project name and let AI build your task list automatically.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Track Progress',
-    desc: 'See what is done, what is left, and if you are on schedule.',
-  },
-  {
-    icon: Users,
-    title: 'Work Together',
-    desc: 'Invite teammates and collaborate on tasks in real time.',
-  },
-];
 
 export const HomePage: React.FC = () => {
   const { isAuthenticated } = useAuthStore();
@@ -129,33 +102,7 @@ export const HomePage: React.FC = () => {
           )}
         </section>
 
-        {/* ── Divider ── */}
-        <div className="border-t border-[#E6DACB] dark:border-[#1C1C1C]" />
 
-        {/* ── Features ── */}
-        <section className="py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#800020] dark:text-[#992355] mb-10 text-center">
-            What's inside
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#E6DACB] dark:bg-[#1C1C1C] border border-[#E6DACB] dark:border-[#1C1C1C] rounded-2xl overflow-hidden">
-            {features.map(({ icon: Icon, title, desc }, i) => (
-              <div
-                key={i}
-                className="bg-[#FAF6EE] dark:bg-[#000000] p-8 hover:bg-[#F5EDE4] dark:hover:bg-[#0A0A0A] transition-colors"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[#F0E4E8] dark:bg-[#1C0812] flex items-center justify-center mb-4">
-                  <Icon className="w-4 h-4 text-[#800020] dark:text-[#BD326D]" />
-                </div>
-                <h3 className="text-sm font-semibold text-[#1A0D08] dark:text-slate-100 mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-sm text-[#7C6E65] dark:text-slate-500 leading-relaxed">
-                  {desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
 
       </main>
 
