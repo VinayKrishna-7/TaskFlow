@@ -129,12 +129,6 @@ In the root project directory, you can run:
 
 ---
 
-## Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/VinayKrishna-7/TaskFlow/issues) or read our [Contributing Guide](CONTRIBUTING.md).
-
----
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
