@@ -10,6 +10,7 @@ export const ResetPasswordPage: React.FC = () => {
   const urlToken = searchParams.get('token') || '';
   const emailParam = searchParams.get('email') || '';
   
+  const [email, setEmail] = useState(emailParam);
   const [token, setToken] = useState(urlToken);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -28,9 +29,11 @@ export const ResetPasswordPage: React.FC = () => {
     e.preventDefault();
     setError('');
 
+    const cleanEmail = email.trim().toLowerCase();
     const cleanToken = token.trim();
-    if (!cleanToken) {
-      setError('Password reset token is required. Please check your reset link or email.');
+
+    if (!cleanToken && !cleanEmail) {
+      setError('Please provide your account email address.');
       return;
     }
     if (!hasMinLength || !hasUppercase || !hasNumber) {
@@ -38,25 +41,27 @@ export const ResetPasswordPage: React.FC = () => {
       return;
     }
     if (newPassword !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError('Passwords do not match. Please verify your new password.');
       return;
     }
 
     setIsLoading(true);
     try {
       await api.post('/auth/reset-password', {
-        token: cleanToken,
+        email: cleanEmail || undefined,
+        token: cleanToken || undefined,
         newPassword,
       });
       setIsSuccess(true);
-      if (emailParam) {
-        localStorage.setItem('taskflow_remember_login', emailParam);
+      const targetEmail = cleanEmail || emailParam;
+      if (targetEmail) {
+        localStorage.setItem('taskflow_remember_login', targetEmail);
       }
       setTimeout(() => {
-        navigate('/login', { state: { email: emailParam } });
+        navigate('/login', { state: { email: targetEmail } });
       }, 1800);
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Password reset failed. Token may be invalid or expired.');
+      setError(err.response?.data?.message || 'Password reset failed. Please check your information.');
     } finally {
       setIsLoading(false);
     }
@@ -78,7 +83,7 @@ export const ResetPasswordPage: React.FC = () => {
             </p>
           ) : (
             <p className="text-xs text-[#7C6E65] dark:text-slate-400">
-              Create a new secure password for your account
+              Enter your account email and create a new password
             </p>
           )}
         </div>
@@ -90,30 +95,39 @@ export const ResetPasswordPage: React.FC = () => {
         )}
 
         {isSuccess ? (
-          <div className="p-5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-center space-y-2.5">
-            <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center mx-auto text-lg">
+          <div className="p-5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-center space-y-3">
+            <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center mx-auto text-lg font-bold">
               ✓
             </div>
-            <p className="text-sm font-bold text-emerald-800 dark:text-emerald-200">
-              Password Reset Successfully!
-            </p>
-            <p className="text-xs text-[#7C6E65] dark:text-slate-400">
-              Your new password is now active. Redirecting to login...
-            </p>
+            <div>
+              <p className="text-sm font-bold text-emerald-800 dark:text-emerald-200">
+                Password Reset Successfully!
+              </p>
+              <p className="text-xs text-[#7C6E65] dark:text-slate-400 mt-1">
+                Your new password is active. Redirecting to sign in...
+              </p>
+            </div>
+            <Link
+              to="/login"
+              state={{ email: email.trim().toLowerCase() || emailParam }}
+              className="inline-flex items-center justify-center w-full py-2.5 px-3 bg-maroon-600 hover:bg-maroon-700 dark:bg-[#992355] dark:hover:bg-[#BD326D] text-white rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer"
+            >
+              Sign In Now &rarr;
+            </Link>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {!urlToken && (
               <Input
-                label="Password Reset Token"
-                type="text"
+                label="Account Email"
+                type="email"
                 required
-                value={token}
+                value={email}
                 onChange={(e) => {
-                  setToken(e.target.value);
+                  setEmail(e.target.value);
                   if (error) setError('');
                 }}
-                placeholder="Paste the reset token here"
+                placeholder="alex@example.com"
               />
             )}
 

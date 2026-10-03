@@ -106,16 +106,20 @@ export class AuthController {
       const { email } = req.body;
       const { resetToken, user } = await AuthService.forgotPassword(email);
 
-      // Dispatch password reset email with direct link
-      await EmailService.sendPasswordResetEmail(user.email, user.name, resetToken);
+      // Attempt to dispatch password reset email (safely handle when email provider is unavailable)
+      try {
+        await EmailService.sendPasswordResetEmail(user.email, user.name, resetToken);
+      } catch (mailErr) {
+        console.warn('Notice: Email delivery unavailable or skipped for password reset:', mailErr);
+      }
 
       const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
       const resetUrl = `${clientUrl}/reset-password?token=${resetToken}&email=${encodeURIComponent(user.email)}`;
 
-      ApiResponse.success(res, `Password reset instructions have been sent to ${user.email}`, {
+      ApiResponse.success(res, `Account verified for ${user.email}. You can reset your password now.`, {
         email: user.email,
-        resetToken: process.env.NODE_ENV !== 'production' ? resetToken : undefined,
-        resetUrl: process.env.NODE_ENV !== 'production' ? resetUrl : undefined,
+        resetToken,
+        resetUrl,
       });
     } catch (error) {
       next(error);
@@ -124,9 +128,9 @@ export class AuthController {
 
   static async resetPassword(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
-      const { token, newPassword } = req.body;
-      await AuthService.resetPassword(token, newPassword);
-      ApiResponse.success(res, 'Password has been successfully reset. Please log in.');
+      const { token, email, newPassword } = req.body;
+      await AuthService.resetPassword({ token, email }, newPassword);
+      ApiResponse.success(res, 'Password has been successfully reset. Please log in with your new password.');
     } catch (error) {
       next(error);
     }

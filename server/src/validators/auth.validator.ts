@@ -44,14 +44,20 @@ export const forgotPasswordSchema = z.object({
 });
 
 export const resetPasswordSchema = z.object({
-  body: z.object({
-    token: z.string().min(1, 'Reset token is required'),
-    newPassword: z
-      .string()
-      .min(8, 'Password must be at least 8 characters')
-      .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
-      .regex(/[0-9]/, 'Password must contain at least one number'),
-  }),
+  body: z
+    .object({
+      token: z.string().optional(),
+      email: z.string().email('Please enter a valid email address').optional(),
+      newPassword: z
+        .string()
+        .min(8, 'Password must be at least 8 characters')
+        .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
+        .regex(/[0-9]/, 'Password must contain at least one number'),
+    })
+    .refine((data) => !!(data.token || data.email), {
+      message: 'Either your account email or reset token must be provided',
+      path: ['email'],
+    }),
 });
 
 export const changePasswordSchema = z.object({

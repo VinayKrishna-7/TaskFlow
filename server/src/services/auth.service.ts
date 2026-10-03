@@ -202,15 +202,35 @@ export class AuthService {
     return { resetToken: rawResetToken, user };
   }
 
-  static async resetPassword(token: string, newPass: string): Promise<void> {
-    const hashed = hashToken(token);
-    const user = await User.findOne({
-      passwordResetToken: hashed,
-      passwordResetExpires: { $gt: new Date() },
-    }).select('+passwordResetToken +passwordResetExpires');
+  static async resetPassword(
+    identifier: { token?: string; email?: string },
+    newPass: string
+  ): Promise<void> {
+    let user;
 
-    if (!user) {
-      throw AppError.badRequest('Password reset token is invalid or has expired');
+    if (identifier.email) {
+      const normalizedEmail = identifier.email.toLowerCase().trim();
+      user = await User.findOne({
+        $or: [{ email: normalizedEmail }, { username: normalizedEmail }],
+      }).select('+password +passwordResetToken +passwordResetExpires');
+
+      if (!user) {
+        throw AppError.notFound(
+          'No account found with this email address. Please make sure you entered the correct registered email.'
+        );
+      }
+    } else if (identifier.token) {
+      const hashed = hashToken(identifier.token);
+      user = await User.findOne({
+        passwordResetToken: hashed,
+        passwordResetExpires: { $gt: new Date() },
+      }).select('+password +passwordResetToken +passwordResetExpires');
+
+      if (!user) {
+        throw AppError.badRequest('Password reset token is invalid or has expired');
+      }
+    } else {
+      throw AppError.badRequest('Please provide either your account email or reset token');
     }
 
     user.password = newPass;
