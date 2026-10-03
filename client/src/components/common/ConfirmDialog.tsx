@@ -34,8 +34,8 @@ export const ConfirmDialog: React.FC = () => {
           <div
             className={`p-2.5 rounded-xl flex-shrink-0 ${
               isDanger
-                ? 'bg-rose-50 dark:bg-blue-950/50 text-rose-600 dark:text-blue-400'
-                : 'bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60'
+                ? 'bg-rose-50 dark:bg-[#38061B]/50 text-rose-600 dark:text-[#E66E9F]'
+                : 'bg-maroon-50 dark:bg-[#38061B]/50 text-maroon-700 dark:text-[#F9CFE2] border border-maroon-200/80 dark:border-[#821946]/60'
             }`}
           >
             <AlertTriangle className="w-5 h-5" />

@@ -25,18 +25,18 @@ export const ToastContainer: React.FC = () => {
             className={cn(
               'pointer-events-auto flex items-center gap-3 p-3.5 rounded-2xl shadow-xl border backdrop-blur-md transition-all animate-in slide-in-from-bottom-5 duration-200',
               isSuccess &&
-                'bg-white/95 dark:bg-[#111827]/95 text-[#2C1810] dark:text-slate-100 border-emerald-500/30 dark:border-emerald-500/30 shadow-emerald-500/5',
+                'bg-white/95 dark:bg-[#0D0D0D]/95 text-[#2C1810] dark:text-slate-100 border-emerald-500/30 dark:border-emerald-500/30 shadow-emerald-500/5',
               isError &&
-                'bg-white/95 dark:bg-[#111827]/95 text-[#2C1810] dark:text-slate-100 border-rose-500/30 dark:border-rose-500/30 shadow-rose-500/5',
+                'bg-white/95 dark:bg-[#0D0D0D]/95 text-[#2C1810] dark:text-slate-100 border-rose-500/30 dark:border-rose-500/30 shadow-rose-500/5',
               !isSuccess &&
                 !isError &&
-                'bg-white/95 dark:bg-[#111827]/95 text-[#2C1810] dark:text-slate-100 border-maroon-200/30 dark:border-blue-800/30 shadow-maroon-900/5'
+                'bg-white/95 dark:bg-[#0D0D0D]/95 text-[#2C1810] dark:text-slate-100 border-maroon-200/30 dark:border-[#821946]/30 shadow-maroon-900/5'
             )}
           >
             <div className="flex-shrink-0">
               {isSuccess && <CheckCircle2 className="w-4 h-4 text-emerald-500" />}
               {isError && <AlertCircle className="w-4 h-4 text-rose-500" />}
-              {!isSuccess && !isError && <Info className="w-4 h-4 text-maroon-700 dark:text-blue-400" />}
+              {!isSuccess && !isError && <Info className="w-4 h-4 text-maroon-700 dark:text-[#E66E9F]" />}
             </div>
 
             <p className="text-xs font-medium flex-1 leading-snug">{toast.message}</p>

@@ -25,7 +25,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           aria-invalid={!!error}
           aria-describedby={error ? `${inputId}-error` : undefined}
           className={cn(
-            'w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#111827] border rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-[#7C6E65]/60 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500 dark:focus:ring-blue-500/30 dark:focus:border-blue-500 transition-all shadow-xs disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-[#F3ECE2] dark:disabled:bg-slate-800/40',
+            'w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-[#7C6E65]/60 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355] dark:focus:ring-[#992355]/30 dark:focus:border-[#992355] transition-all shadow-xs disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-[#F3ECE2] dark:disabled:bg-slate-800/40',
             error ? 'border-rose-500 dark:border-rose-500 focus:ring-rose-500/40' : 'border-[#E6DACB] dark:border-slate-700/80',
             className
           )}

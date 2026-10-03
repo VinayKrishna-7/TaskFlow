@@ -175,7 +175,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               onClick={() => setActiveTab('details')}
               className={`pb-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                 activeTab === 'details'
-                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-[#992355] dark:text-[#F9CFE2]'
                   : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
               }`}
             >
@@ -185,7 +185,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               onClick={() => setActiveTab('comments')}
               className={`pb-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                 activeTab === 'comments'
-                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-[#992355] dark:text-[#F9CFE2]'
                   : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
               }`}
             >
@@ -195,7 +195,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               onClick={() => setActiveTab('activity')}
               className={`pb-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                 activeTab === 'activity'
-                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-blue-500 dark:text-blue-300'
+                  ? 'border-b-2 border-maroon-600 text-maroon-700 dark:border-[#992355] dark:text-[#F9CFE2]'
                   : 'text-[#7C6E65] hover:text-[#4A3B32] dark:hover:text-slate-300'
               }`}
             >
@@ -209,7 +209,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#7C6E65] dark:text-slate-400 mb-1.5">
                   Description
                 </h4>
-                <p className="text-sm text-[#4A3B32] dark:text-slate-300 whitespace-pre-wrap bg-[#FAF6EE] dark:bg-[#111827]/60 p-3.5 rounded-2xl border border-[#E6DACB]/60 dark:border-slate-800/60">
+                <p className="text-sm text-[#4A3B32] dark:text-slate-300 whitespace-pre-wrap bg-[#FAF6EE] dark:bg-[#0D0D0D]/60 p-3.5 rounded-2xl border border-[#E6DACB]/60 dark:border-slate-800/60">
                   {task.description || 'No description provided.'}
                 </p>
               </div>
@@ -228,7 +228,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
                     <Paperclip className="w-3.5 h-3.5" />
                     Attachments ({task.attachments?.length || 0})
                   </h4>
-                  <label className="cursor-pointer text-xs text-maroon-700 dark:text-blue-300 font-semibold hover:underline flex items-center gap-1">
+                  <label className="cursor-pointer text-xs text-maroon-700 dark:text-[#F9CFE2] font-semibold hover:underline flex items-center gap-1">
                     <Upload className="w-3.5 h-3.5" />
                     Upload File
                     <input type="file" onChange={handleFileUpload} className="hidden" />
@@ -245,7 +245,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
                         href={`http://localhost:5000${att.url}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 p-2 bg-[#FAF6EE] dark:bg-[#111827] rounded-xl border border-[#E6DACB] dark:border-slate-800 text-xs font-medium text-[#4A3B32] dark:text-slate-300 hover:bg-slate-100 transition-colors"
+                        className="flex items-center gap-2 p-2 bg-[#FAF6EE] dark:bg-[#0D0D0D] rounded-xl border border-[#E6DACB] dark:border-slate-800 text-xs font-medium text-[#4A3B32] dark:text-slate-300 hover:bg-slate-100 transition-colors"
                       >
                         <Paperclip className="w-3.5 h-3.5 text-[#7C6E65]" />
                         <span className="truncate max-w-[150px]">{att.originalName}</span>
@@ -287,7 +287,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
 
         {/* Right Column: Metadata Controls & Time Tracking */}
         <div className="space-y-4">
-          <div className="p-4 bg-slate-50/80 dark:bg-[#111827]/70 rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 space-y-3.5">
+          <div className="p-4 bg-slate-50/80 dark:bg-[#0D0D0D]/70 rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 space-y-3.5">
             <div>
               <label className="block text-[10px] font-bold uppercase tracking-wider text-[#7C6E65] mb-1">
                 Status
@@ -295,7 +295,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               <select
                 value={task.status}
                 onChange={(e) => handleStatusChange(e.target.value as TaskStatus)}
-                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#0B0F17] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
+                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#000000] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-[#992355]/30 dark:focus:border-[#992355]"
               >
                 <option value="TODO">To Do</option>
                 <option value="IN_PROGRESS">In Progress</option>
@@ -311,7 +311,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               <select
                 value={task.priority}
                 onChange={(e) => handlePriorityChange(e.target.value as TaskPriority)}
-                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#0B0F17] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
+                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#000000] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-[#992355]/30 dark:focus:border-[#992355]"
               >
                 <option value="LOW">Low</option>
                 <option value="MEDIUM">Medium</option>
@@ -327,7 +327,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
               <select
                 value={task.assignee?._id || ''}
                 onChange={(e) => handleAssigneeChange(e.target.value)}
-                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#0B0F17] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
+                className="w-full px-3 py-1.5 bg-[#FFFDF9] dark:bg-[#000000] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs font-semibold text-[#2C1810] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-[#992355]/30 dark:focus:border-[#992355]"
               >
                 <option value="">Unassigned</option>
                 {members.map((m) => (
@@ -369,7 +369,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
             </button>
             <button
               onClick={handleDelete}
-              className="flex-1 py-2 px-3 bg-rose-50 hover:bg-rose-100 dark:bg-blue-950/40 text-rose-600 dark:text-blue-400 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              className="flex-1 py-2 px-3 bg-rose-50 hover:bg-rose-100 dark:bg-[#38061B]/40 text-rose-600 dark:text-[#E66E9F] rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
               <Trash2 className="w-3.5 h-3.5" /> Delete
             </button>

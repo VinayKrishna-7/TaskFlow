@@ -27,7 +27,7 @@ export const KanbanColumn: React.FC<KanbanColumnProps> = ({
 
   const columnColors = {
     TODO: 'border-t-slate-400',
-    IN_PROGRESS: 'border-t-maroon-600 dark:border-t-blue-500',
+    IN_PROGRESS: 'border-t-maroon-600 dark:border-t-[#992355]',
     IN_REVIEW: 'border-t-amber-500',
     COMPLETED: 'border-t-emerald-500',
   };
@@ -35,9 +35,9 @@ export const KanbanColumn: React.FC<KanbanColumnProps> = ({
   return (
     <div
       ref={setNodeRef}
-      className={`w-72 md:w-80 flex-shrink-0 bg-slate-100/70 dark:bg-[#111827]/50 rounded-2xl p-3.5 border border-[#E6DACB]/80 dark:border-slate-800/80 flex flex-col max-h-[calc(100vh-12rem)] border-t-4 ${
+      className={`w-72 md:w-80 flex-shrink-0 bg-slate-100/70 dark:bg-[#0D0D0D]/50 rounded-2xl p-3.5 border border-[#E6DACB]/80 dark:border-slate-800/80 flex flex-col max-h-[calc(100vh-12rem)] border-t-4 ${
         columnColors[status]
-      } ${isOver ? 'ring-2 ring-maroon-600/30 bg-maroon-50/20 dark:ring-blue-500/40 dark:bg-blue-950/30' : ''}`}
+      } ${isOver ? 'ring-2 ring-maroon-600/30 bg-maroon-50/20 dark:ring-[#992355]/40 dark:bg-[#38061B]/30' : ''}`}
     >
       {/* Column Header */}
       <div className="flex items-center justify-between px-1 py-1.5 mb-3">
@@ -67,7 +67,7 @@ export const KanbanColumn: React.FC<KanbanColumnProps> = ({
             <div
               className={`h-28 border border-dashed rounded-2xl flex flex-col items-center justify-center text-xs transition-colors ${
                 isOver
-                  ? 'border-maroon-200 bg-maroon-50/30 dark:border-blue-700/60 dark:bg-blue-950/30 text-maroon-700 dark:text-blue-300 font-semibold'
+                  ? 'border-maroon-200 bg-maroon-50/30 dark:border-[#992355]/60 dark:bg-[#38061B]/30 text-maroon-700 dark:text-[#F9CFE2] font-semibold'
                   : 'border-[#E6DACB] dark:border-slate-800 text-[#7C6E65]'
               }`}
             >

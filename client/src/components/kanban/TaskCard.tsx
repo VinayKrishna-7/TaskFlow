@@ -44,9 +44,9 @@ export const TaskCard: React.FC<TaskCardProps> = React.memo(({ task, onClick }) 
       {...listeners}
       onClick={() => onClick(task)}
       className={cn(
-        'p-3.5 bg-[#FFFDF9] dark:bg-[#111827] border rounded-2xl shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group active:scale-[0.99] select-none',
+        'p-3.5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border rounded-2xl shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing group active:scale-[0.99] select-none',
         isDragging
-          ? 'border-dashed border-maroon-400 dark:border-blue-500 bg-maroon-50/20 dark:bg-blue-950/20'
+          ? 'border-dashed border-maroon-400 dark:border-[#992355] bg-maroon-50/20 dark:bg-[#38061B]/20'
           : 'border-[#E6DACB]/80 dark:border-slate-800/80 hover:border-maroon-500/50 dark:hover:border-blue-500/50'
       )}
     >
@@ -62,7 +62,7 @@ export const TaskCard: React.FC<TaskCardProps> = React.memo(({ task, onClick }) 
             className={cn(
               'text-[11px] font-medium flex items-center gap-1 px-2 py-0.5 rounded-md transition-colors',
               dueStatus.isOverdue
-                ? 'bg-rose-50 dark:bg-blue-950/40 text-rose-600 dark:text-blue-400 border border-rose-200/80 dark:border-rose-900/60 font-semibold'
+                ? 'bg-rose-50 dark:bg-[#38061B]/40 text-rose-600 dark:text-[#E66E9F] border border-rose-200/80 dark:border-rose-900/60 font-semibold'
                 : dueStatus.isToday
                 ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 font-semibold'
                 : 'text-[#7C6E65] dark:text-slate-400'
@@ -79,7 +79,7 @@ export const TaskCard: React.FC<TaskCardProps> = React.memo(({ task, onClick }) 
       </div>
 
       {/* Task Title */}
-      <h4 className="text-sm font-semibold text-[#2C1810] dark:text-slate-100 group-hover:text-maroon-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+      <h4 className="text-sm font-semibold text-[#2C1810] dark:text-slate-100 group-hover:text-maroon-600 dark:group-hover:text-[#E66E9F] transition-colors line-clamp-2 leading-snug">
         {task.title}
       </h4>
 
@@ -112,7 +112,7 @@ export const TaskCard: React.FC<TaskCardProps> = React.memo(({ task, onClick }) 
         <div className="flex items-center gap-3">
           {totalSubtasks > 0 && (
             <span className="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-300">
-              <CheckSquare className="w-3.5 h-3.5 text-maroon-600 dark:text-blue-400" />
+              <CheckSquare className="w-3.5 h-3.5 text-maroon-600 dark:text-[#E66E9F]" />
               <span>
                 {completedSubtasks}/{totalSubtasks}
               </span>
@@ -132,7 +132,7 @@ export const TaskCard: React.FC<TaskCardProps> = React.memo(({ task, onClick }) 
             src={task.assignee.avatar}
             name={task.assignee.name}
             size="sm"
-            className="ring-2 ring-white dark:ring-[#111827]"
+            className="ring-2 ring-white dark:ring-[#0D0D0D]"
           />
         )}
       </div>

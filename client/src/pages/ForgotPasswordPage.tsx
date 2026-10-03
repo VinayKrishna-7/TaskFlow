@@ -41,10 +41,10 @@ export const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-[#FAF6EE] dark:bg-[#0B0F17]">
-      <div className="w-full max-w-md bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl shadow-xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-8 space-y-6">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-[#FAF6EE] dark:bg-[#000000]">
+      <div className="w-full max-w-md bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl shadow-xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-8 space-y-6">
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-blue-600 dark:via-blue-500 dark:to-cyan-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-[#BD326D] dark:via-[#992355] dark:to-[#6B1439] flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25">
             <Layers className="w-6 h-6" />
           </div>
           <h2 className="text-2xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">
@@ -78,13 +78,13 @@ export const ForgotPasswordPage: React.FC = () => {
                   </p>
                   <Link
                     to={`/reset-password?token=${resetToken}&email=${encodeURIComponent(email)}`}
-                    className="inline-flex items-center justify-center w-full py-2.5 px-3 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition-all shadow-xs"
+                    className="inline-flex items-center justify-center w-full py-2.5 px-3 bg-maroon-600 hover:bg-maroon-700 dark:bg-[#992355] dark:hover:bg-[#BD326D] text-white rounded-xl text-xs font-bold transition-all shadow-xs"
                   >
                     Click to Reset Password Now &rarr;
                   </Link>
                   <div className="pt-1">
                     <p className="text-[10px] text-[#7C6E65] mb-0.5">Or use Reset Token manually:</p>
-                    <code className="block p-1.5 bg-[#FFFDF9] dark:bg-[#111827] border border-emerald-200 dark:border-emerald-900 rounded text-[11px] font-mono break-all select-all">
+                    <code className="block p-1.5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-emerald-200 dark:border-emerald-900 rounded text-[11px] font-mono break-all select-all">
                       {resetToken}
                     </code>
                   </div>

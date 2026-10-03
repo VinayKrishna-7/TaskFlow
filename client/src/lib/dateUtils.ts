@@ -46,7 +46,7 @@ export function getDueStatus(dueDate?: string | Date | null, isCompleted = false
       isToday: false,
       isTomorrow: true,
       exactDate,
-      color: 'text-maroon-700 dark:text-blue-300 bg-maroon-50 dark:bg-blue-950/40 border border-maroon-200 dark:border-blue-800/60',
+      color: 'text-maroon-700 dark:text-[#F9CFE2] bg-maroon-50 dark:bg-[#38061B]/40 border border-maroon-200 dark:border-[#821946]/60',
     };
   }
 
@@ -73,7 +73,7 @@ export function getDueStatus(dueDate?: string | Date | null, isCompleted = false
       exactDate,
       color: isCompleted
         ? 'text-[#7C6E65] dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-[#E6DACB] dark:border-slate-700'
-        : 'text-rose-700 dark:text-blue-400 bg-rose-50 dark:bg-blue-950/40 border border-rose-200 dark:border-blue-800/60',
+        : 'text-rose-700 dark:text-[#E66E9F] bg-rose-50 dark:bg-[#38061B]/40 border border-rose-200 dark:border-[#821946]/60',
     };
   }
 

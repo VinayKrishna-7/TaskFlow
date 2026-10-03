@@ -116,7 +116,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
             <select
               value={effectiveProjectId}
               onChange={(e) => setSelectedProjectId(e.target.value)}
-              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]"
             >
               {projects.map((proj) => (
                 <option key={proj._id} value={proj._id}>
@@ -144,7 +144,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Detailed description, requirements, or acceptance criteria..."
-            className="w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+            className="w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]"
           />
         </div>
 
@@ -156,7 +156,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value as TaskStatus)}
-              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]"
             >
               <option value="TODO">To Do</option>
               <option value="IN_PROGRESS">In Progress</option>
@@ -172,7 +172,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
             <select
               value={priority}
               onChange={(e) => setPriority(e.target.value as TaskPriority)}
-              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]"
             >
               <option value="LOW">Low</option>
               <option value="MEDIUM">Medium</option>
@@ -190,7 +190,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
             <select
               value={assignee}
               onChange={(e) => setAssignee(e.target.value)}
-              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]"
             >
               <option value="">Unassigned</option>
               {currentMembers.map((m) => (
@@ -209,7 +209,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]"
             />
           </div>
         </div>
@@ -232,7 +232,7 @@ export const CreateTaskModal: React.FC<CreateTaskModalProps> = ({
             <select
               value={recurrenceType}
               onChange={(e) => setRecurrenceType(e.target.value)}
-              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500"
+              className="w-full px-3 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]"
             >
               <option value="NONE">None</option>
               <option value="DAILY">Daily</option>

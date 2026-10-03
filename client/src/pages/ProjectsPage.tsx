@@ -98,7 +98,7 @@ export const ProjectsPage: React.FC = () => {
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer self-start sm:self-auto"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-[#992355] dark:hover:bg-[#BD326D] text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
           New Project
@@ -128,11 +128,11 @@ export const ProjectsPage: React.FC = () => {
               <div
                 key={project._id}
                 onClick={() => openProject(project)}
-                className="p-5 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-blue-500/50 transition-all cursor-pointer group flex flex-col justify-between relative"
+                className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-blue-500/50 transition-all cursor-pointer group flex flex-col justify-between relative"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wider uppercase bg-maroon-50 text-maroon-700 dark:bg-blue-950/60 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60">
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wider uppercase bg-maroon-50 text-maroon-700 dark:bg-[#38061B]/60 dark:text-[#F9CFE2] border border-maroon-200/80 dark:border-[#821946]/60">
                       {project.key}
                     </span>
                     <div className="flex items-center gap-2">
@@ -151,7 +151,7 @@ export const ProjectsPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-[#2C1810] dark:text-slate-100 group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-base font-bold text-[#2C1810] dark:text-slate-100 group-hover:text-maroon-700 dark:group-hover:text-[#E66E9F] transition-colors">
                     {project.name}
                   </h3>
                   <p className="text-xs text-[#7C6E65] dark:text-slate-400 line-clamp-2 leading-relaxed">
@@ -164,13 +164,13 @@ export const ProjectsPage: React.FC = () => {
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
                       <span className="text-[#7C6E65]">Progress</span>
-                      <span className="text-maroon-700 dark:text-blue-300">
+                      <span className="text-maroon-700 dark:text-[#F9CFE2]">
                         {stats.completionPercentage}%
                       </span>
                     </div>
                     <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-maroon-600 dark:bg-blue-600 rounded-full transition-all"
+                        className="h-full bg-maroon-600 dark:bg-[#992355] rounded-full transition-all"
                         style={{ width: `${stats.completionPercentage}%` }}
                       />
                     </div>
@@ -181,7 +181,7 @@ export const ProjectsPage: React.FC = () => {
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                       <span>{stats.completed} done</span>
                     </div>
-                    <span className="flex items-center gap-1 text-maroon-700 dark:text-blue-300 group-hover:translate-x-1 transition-transform font-semibold">
+                    <span className="flex items-center gap-1 text-maroon-700 dark:text-[#F9CFE2] group-hover:translate-x-1 transition-transform font-semibold">
                       Open Board &rarr;
                     </span>
                   </div>
@@ -226,7 +226,7 @@ export const ProjectsPage: React.FC = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="What is the goal of this project?"
-              className="w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
+              className="w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-[#992355]/30 dark:focus:border-[#992355]"
             />
           </div>
 

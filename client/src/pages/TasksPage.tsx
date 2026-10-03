@@ -180,7 +180,7 @@ export const TasksPage: React.FC = () => {
           <button
             type="button"
             onClick={() => setIsCreateOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-[#992355] dark:hover:bg-[#BD326D] text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             Create Task
@@ -190,7 +190,7 @@ export const TasksPage: React.FC = () => {
 
       {/* Filter & Search Bar */}
       <div className="space-y-2.5">
-        <div className="p-3 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3 shadow-sm">
+        <div className="p-3 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3 shadow-sm">
           <div className="flex flex-wrap items-center gap-2.5 flex-1">
             <div className="relative min-w-[200px] max-w-xs flex-1">
               <Search className="w-3.5 h-3.5 text-[#7C6E65] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -203,7 +203,7 @@ export const TasksPage: React.FC = () => {
                 }}
                 placeholder="Filter by keyword, title, tag, #id..."
                 aria-label="Filter tasks by keyword"
-                className="w-full pl-8 pr-8 py-1.5 bg-slate-100/70 dark:bg-slate-800/60 border border-[#E6DACB] dark:border-slate-700/80 rounded-xl text-xs text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500 transition-all"
+                className="w-full pl-8 pr-8 py-1.5 bg-slate-100/70 dark:bg-slate-800/60 border border-[#E6DACB] dark:border-slate-700/80 rounded-xl text-xs text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355] transition-all"
               />
               {search && (
                 <button
@@ -280,7 +280,7 @@ export const TasksPage: React.FC = () => {
               aria-label="List View"
               className={`p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
                 viewMode === 'table'
-                  ? 'bg-[#FFFDF9] dark:bg-[#111827] text-[#2C1810] dark:text-slate-100 shadow-sm'
+                  ? 'bg-[#FFFDF9] dark:bg-[#0D0D0D] text-[#2C1810] dark:text-slate-100 shadow-sm'
                   : 'text-[#7C6E65] hover:text-[#2C1810] dark:hover:text-slate-200'
               }`}
             >
@@ -293,7 +293,7 @@ export const TasksPage: React.FC = () => {
               aria-label="Grid View"
               className={`p-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
                 viewMode === 'cards'
-                  ? 'bg-[#FFFDF9] dark:bg-[#111827] text-[#2C1810] dark:text-slate-100 shadow-sm'
+                  ? 'bg-[#FFFDF9] dark:bg-[#0D0D0D] text-[#2C1810] dark:text-slate-100 shadow-sm'
                   : 'text-[#7C6E65] hover:text-[#2C1810] dark:hover:text-slate-200'
               }`}
             >
@@ -307,52 +307,52 @@ export const TasksPage: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2 px-1 text-xs">
             <span className="text-[#7C6E65] font-medium">Active filters:</span>
             {selectedProjectFilter && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-blue-950/60 text-maroon-700 dark:text-blue-300 font-medium border border-maroon-200/80 dark:border-blue-800/60">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-[#38061B]/60 text-maroon-700 dark:text-[#F9CFE2] font-medium border border-maroon-200/80 dark:border-[#821946]/60">
                 Project: {selectedProjectObj?.name || 'Selected'}
                 <button
                   type="button"
                   onClick={() => setSelectedProjectFilter('')}
                   aria-label="Remove project filter"
-                  className="hover:text-maroon-700 dark:hover:text-blue-400 ml-0.5 cursor-pointer"
+                  className="hover:text-maroon-700 dark:hover:text-[#E66E9F] ml-0.5 cursor-pointer"
                 >
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
             {search && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-blue-950/60 text-maroon-700 dark:text-blue-300 font-medium border border-maroon-200/80 dark:border-blue-800/60">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-[#38061B]/60 text-maroon-700 dark:text-[#F9CFE2] font-medium border border-maroon-200/80 dark:border-[#821946]/60">
                 Search: "{search}"
                 <button
                   type="button"
                   onClick={() => setSearch('')}
                   aria-label="Remove search filter"
-                  className="hover:text-maroon-700 dark:hover:text-blue-400 ml-0.5 cursor-pointer"
+                  className="hover:text-maroon-700 dark:hover:text-[#E66E9F] ml-0.5 cursor-pointer"
                 >
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
             {statusFilter && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-blue-950/60 text-maroon-700 dark:text-blue-300 font-medium border border-maroon-200/80 dark:border-blue-800/60">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-[#38061B]/60 text-maroon-700 dark:text-[#F9CFE2] font-medium border border-maroon-200/80 dark:border-[#821946]/60">
                 Status: {statusFilter.replace('_', ' ')}
                 <button
                   type="button"
                   onClick={() => setStatusFilter('')}
                   aria-label="Remove status filter"
-                  className="hover:text-maroon-700 dark:hover:text-blue-400 ml-0.5 cursor-pointer"
+                  className="hover:text-maroon-700 dark:hover:text-[#E66E9F] ml-0.5 cursor-pointer"
                 >
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
             {priorityFilter && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-blue-950/60 text-maroon-700 dark:text-blue-300 font-medium border border-maroon-200/80 dark:border-blue-800/60">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-maroon-50 dark:bg-[#38061B]/60 text-maroon-700 dark:text-[#F9CFE2] font-medium border border-maroon-200/80 dark:border-[#821946]/60">
                 Priority: {priorityFilter}
                 <button
                   type="button"
                   onClick={() => setPriorityFilter('')}
                   aria-label="Remove priority filter"
-                  className="hover:text-maroon-700 dark:hover:text-blue-400 ml-0.5 cursor-pointer"
+                  className="hover:text-maroon-700 dark:hover:text-[#E66E9F] ml-0.5 cursor-pointer"
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -380,7 +380,7 @@ export const TasksPage: React.FC = () => {
             <button
               type="button"
               onClick={clearAllFilters}
-              className="text-xs font-semibold text-maroon-700 dark:text-blue-400 hover:underline ml-1 cursor-pointer"
+              className="text-xs font-semibold text-maroon-700 dark:text-[#E66E9F] hover:underline ml-1 cursor-pointer"
             >
               Clear all
             </button>
@@ -412,7 +412,7 @@ export const TasksPage: React.FC = () => {
           />
         )
       ) : viewMode === 'table' ? (
-        <div className="bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm overflow-hidden">
+        <div className="bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead className="bg-[#FAF6EE] dark:bg-slate-800/60 border-b border-[#E6DACB]/80 dark:border-slate-800 text-[11px] uppercase font-bold text-[#7C6E65]">
@@ -437,7 +437,7 @@ export const TasksPage: React.FC = () => {
                       onClick={() => setSelectedTaskId(task._id)}
                       className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 cursor-pointer transition-colors group"
                     >
-                      <td className="py-3 px-4 font-semibold text-[#2C1810] dark:text-slate-200 group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
+                      <td className="py-3 px-4 font-semibold text-[#2C1810] dark:text-slate-200 group-hover:text-maroon-700 dark:group-hover:text-[#E66E9F] transition-colors">
                         {task.title}
                       </td>
                       <td className="py-3 px-4">
@@ -477,7 +477,7 @@ export const TasksPage: React.FC = () => {
                             title={dueStatus.exactDate}
                             className={
                               dueStatus.isOverdue
-                                ? 'text-rose-600 dark:text-blue-400 font-semibold flex items-center gap-1'
+                                ? 'text-rose-600 dark:text-[#E66E9F] font-semibold flex items-center gap-1'
                                 : ''
                             }
                           >
@@ -514,7 +514,7 @@ export const TasksPage: React.FC = () => {
               <div
                 key={task._id}
                 onClick={() => setSelectedTaskId(task._id)}
-                className="p-4 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-blue-500/50 cursor-pointer transition-all space-y-3 group"
+                className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm hover:shadow-md hover:border-maroon-200/50 dark:hover:border-blue-500/50 cursor-pointer transition-all space-y-3 group"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5 flex-wrap">
@@ -531,7 +531,7 @@ export const TasksPage: React.FC = () => {
                     </span>
                   )}
                 </div>
-                <h4 className="text-sm font-semibold text-[#2C1810] dark:text-slate-100 group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                <h4 className="text-sm font-semibold text-[#2C1810] dark:text-slate-100 group-hover:text-maroon-700 dark:group-hover:text-[#E66E9F] transition-colors line-clamp-2">
                   {task.title}
                 </h4>
                 {task.description && (
@@ -543,7 +543,7 @@ export const TasksPage: React.FC = () => {
                   <span
                     className={
                       dueStatus?.isOverdue
-                        ? 'text-rose-600 dark:text-blue-400 font-semibold flex items-center gap-1'
+                        ? 'text-rose-600 dark:text-[#E66E9F] font-semibold flex items-center gap-1'
                         : ''
                     }
                   >

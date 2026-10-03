@@ -84,7 +84,7 @@ export const TaskComments: React.FC<TaskCommentsProps> = ({ taskId }) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <MessageSquare className="w-4 h-4 text-maroon-700 dark:text-blue-300" />
+        <MessageSquare className="w-4 h-4 text-maroon-700 dark:text-[#F9CFE2]" />
         <h4 className="text-xs font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300">
           Comments ({comments.length})
         </h4>
@@ -96,7 +96,7 @@ export const TaskComments: React.FC<TaskCommentsProps> = ({ taskId }) => {
           <p className="text-xs text-[#7C6E65] italic">No comments yet. Mention team members with @username.</p>
         ) : (
           comments.map((c) => (
-            <div key={c._id} className="p-3 bg-[#FAF6EE] dark:bg-[#111827]/70 rounded-2xl border border-[#E6DACB]/60 dark:border-slate-800/80 group">
+            <div key={c._id} className="p-3 bg-[#FAF6EE] dark:bg-[#0D0D0D]/70 rounded-2xl border border-[#E6DACB]/60 dark:border-slate-800/80 group">
               <div className="flex items-center justify-between mb-1.5">
                 <div className="flex items-center gap-2">
                   <Avatar src={c.author?.avatar} name={c.author?.name} size="xs" />
@@ -130,12 +130,12 @@ export const TaskComments: React.FC<TaskCommentsProps> = ({ taskId }) => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Write a comment or mention @username..."
-          className="flex-1 px-3.5 py-2 bg-[#FAF6EE] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-blue-500/30 dark:focus:border-blue-500"
+          className="flex-1 px-3.5 py-2 bg-[#FAF6EE] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-xs text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:ring-[#992355]/30 dark:focus:border-[#992355]"
         />
         <button
           type="submit"
           disabled={isSubmitting || !content.trim()}
-          className="px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold disabled:opacity-50 transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+          className="px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-[#992355] dark:hover:bg-[#BD326D] text-white rounded-xl text-xs font-semibold disabled:opacity-50 transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
         >
           <Send className="w-3.5 h-3.5" />
         </button>

@@ -92,7 +92,7 @@ export const AppLayout: React.FC = () => {
   }, [activeWorkspace?._id]);
 
   return (
-    <div className="flex min-h-screen bg-[#FAF6EE] dark:bg-[#0B0F17] text-[#2C1810] dark:text-slate-100 font-sans">
+    <div className="flex min-h-screen bg-[#FAF6EE] dark:bg-[#000000] text-[#2C1810] dark:text-slate-100 font-sans">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <Navbar />

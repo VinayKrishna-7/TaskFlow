@@ -8,6 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
+        plum: {
+          50: '#FDF2F7',
+          100: '#FCE7F0',
+          200: '#F9CFE2',
+          300: '#F3A7C8',
+          400: '#E66E9F',
+          500: '#BD326D',
+          600: '#992355', // exact hex from user's image
+          700: '#821946',
+          800: '#6B1439',
+          900: '#540F2C',
+          950: '#38061B',
+        },
         maroon: {
           50: '#FDF2F4',
           100: '#FCE7EA',
@@ -46,11 +59,13 @@ export default {
           950: '#26000A',
         },
         dark: {
-          bg: '#0B0F17',
-          card: '#111827',
-          border: '#1E293B',
+          bg: '#000000',
+          card: '#0D0D0D',
+          elevated: '#141414',
+          border: '#242424',
           text: '#F8FAFC',
-          muted: '#94A3B8',
+          muted: '#A3A3A3',
+          plum: '#992355',
         }
       },
       fontFamily: {

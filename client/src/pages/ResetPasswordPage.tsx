@@ -63,10 +63,10 @@ export const ResetPasswordPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-[#FAF6EE] dark:bg-[#0B0F17]">
-      <div className="w-full max-w-md bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl shadow-xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-8 space-y-6">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-[#FAF6EE] dark:bg-[#000000]">
+      <div className="w-full max-w-md bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl shadow-xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-8 space-y-6">
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-blue-600 dark:via-blue-500 dark:to-cyan-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-[#BD326D] dark:via-[#992355] dark:to-[#6B1439] flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25">
             <Layers className="w-6 h-6" />
           </div>
           <h2 className="text-2xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">
@@ -74,7 +74,7 @@ export const ResetPasswordPage: React.FC = () => {
           </h2>
           {emailParam ? (
             <p className="text-xs text-[#7C6E65] dark:text-slate-400">
-              Resetting password for: <span className="font-semibold text-maroon-700 dark:text-blue-400">{emailParam}</span>
+              Resetting password for: <span className="font-semibold text-maroon-700 dark:text-[#E66E9F]">{emailParam}</span>
             </p>
           ) : (
             <p className="text-xs text-[#7C6E65] dark:text-slate-400">
@@ -131,7 +131,7 @@ export const ResetPasswordPage: React.FC = () => {
                     if (error) setError('');
                   }}
                   placeholder="Min 8 chars, 1 uppercase, 1 number"
-                  className="w-full px-3.5 py-2 pr-10 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500 transition-all shadow-xs"
+                  className="w-full px-3.5 py-2 pr-10 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355] transition-all shadow-xs"
                 />
                 <button
                   type="button"
@@ -145,7 +145,7 @@ export const ResetPasswordPage: React.FC = () => {
 
               {/* Password requirement indicators */}
               {newPassword.length > 0 && (
-                <div className="mt-2 p-2.5 bg-[#FAF6EE] dark:bg-[#0B0F17] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-xl space-y-1 text-[11px]">
+                <div className="mt-2 p-2.5 bg-[#FAF6EE] dark:bg-[#000000] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-xl space-y-1 text-[11px]">
                   <div className={`flex items-center gap-1.5 font-medium ${hasMinLength ? 'text-emerald-600 dark:text-emerald-400' : 'text-[#7C6E65]'}`}>
                     {hasMinLength ? <Check className="w-3.5 h-3.5" /> : <X className="w-3.5 h-3.5" />}
                     <span>At least 8 characters</span>

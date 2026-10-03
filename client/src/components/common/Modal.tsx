@@ -55,12 +55,12 @@ export const Modal: React.FC<ModalProps> = ({
     >
       <div
         className={cn(
-          'w-full bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl shadow-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 overflow-hidden flex flex-col my-auto max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)]',
+          'w-full bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl shadow-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 overflow-hidden flex flex-col my-auto max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)]',
           widthClasses[maxWidth]
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 sm:py-4 border-b border-[#E6DACB]/80 dark:border-slate-800/80 bg-[#FFFDF9] dark:bg-[#111827] flex-shrink-0 sticky top-0 z-10">
+        <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 sm:py-4 border-b border-[#E6DACB]/80 dark:border-slate-800/80 bg-[#FFFDF9] dark:bg-[#0D0D0D] flex-shrink-0 sticky top-0 z-10">
           <h3 className="text-base font-bold text-[#2C1810] dark:text-slate-100 truncate pr-3">{title}</h3>
           <button
             type="button"

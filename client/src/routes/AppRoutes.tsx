@@ -19,7 +19,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then((m) => ({ d
 
 const PageLoader: React.FC = () => (
   <div className="w-full py-16 flex flex-col items-center justify-center space-y-3">
-    <div className="w-7 h-7 border-2 border-maroon-600 dark:border-blue-500 border-t-transparent rounded-full animate-spin" />
+    <div className="w-7 h-7 border-2 border-maroon-600 dark:border-[#992355] border-t-transparent rounded-full animate-spin" />
     <span className="text-xs font-medium text-[#7C6E65]">Loading...</span>
   </div>
 );

@@ -36,10 +36,10 @@ import { cn } from '../lib/utils';
 import { ITask } from '../types';
 import { format } from 'date-fns';
 
-const STATUS_COLORS = ['#94a3b8', '#3b82f6', '#f59e0b', '#10b981'];
+const STATUS_COLORS = ['#94a3b8', '#992355', '#f59e0b', '#10b981'];
 const STATUS_COLOR_MAP: Record<string, string> = {
   'To Do': '#94a3b8',
-  'In Progress': '#3b82f6',
+  'In Progress': '#992355',
   'In Review': '#f59e0b',
   'Completed': '#10b981',
 };
@@ -109,7 +109,7 @@ export const DashboardPage: React.FC = () => {
         {activeProject && (
           <button
             onClick={() => setIsCreateOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-[#992355] dark:hover:bg-[#BD326D] text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             New Task
@@ -123,7 +123,7 @@ export const DashboardPage: React.FC = () => {
           {Array.from({ length: 4 }).map((_, i) => (
             <div
               key={i}
-              className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4 animate-pulse"
+              className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center gap-4 animate-pulse"
             >
               <div className="w-11 h-11 rounded-xl bg-slate-200 dark:bg-slate-800 flex-shrink-0" />
               <div className="space-y-2 flex-1">
@@ -142,20 +142,20 @@ export const DashboardPage: React.FC = () => {
             onClick={() => navigate('/tasks')}
             onKeyDown={(e) => e.key === 'Enter' && navigate('/tasks')}
             title="Click to view all tasks"
-            className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-blue-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-blue-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
           >
             <div className="flex items-center gap-3.5 min-w-0">
-              <div className="p-3 rounded-xl bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60 group-hover:scale-105 transition-transform flex-shrink-0">
+              <div className="p-3 rounded-xl bg-maroon-50 dark:bg-[#38061B]/50 text-maroon-700 dark:text-[#F9CFE2] border border-maroon-200/80 dark:border-[#821946]/60 group-hover:scale-105 transition-transform flex-shrink-0">
                 <Layers className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65] group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors truncate">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65] group-hover:text-maroon-700 dark:group-hover:text-[#E66E9F] transition-colors truncate">
                   Total Tasks
                 </p>
                 <h3 className="text-xl font-bold text-[#2C1810] dark:text-slate-100">{overview.totalTasks}</h3>
               </div>
             </div>
-            <div className="flex items-center text-[10px] font-semibold text-maroon-700 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+            <div className="flex items-center text-[10px] font-semibold text-maroon-700 dark:text-[#E66E9F] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
               <span className="hidden sm:inline">View</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-0.5" />
             </div>
@@ -168,20 +168,20 @@ export const DashboardPage: React.FC = () => {
             onClick={() => navigate('/tasks?status=IN_PROGRESS')}
             onKeyDown={(e) => e.key === 'Enter' && navigate('/tasks?status=IN_PROGRESS')}
             title="Click to view in-progress tasks"
-            className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-blue-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-maroon-300 dark:hover:border-blue-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
           >
             <div className="flex items-center gap-3.5 min-w-0">
-              <div className="p-3 rounded-xl bg-maroon-50 dark:bg-blue-950/50 text-maroon-700 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60 group-hover:scale-105 transition-transform flex-shrink-0">
+              <div className="p-3 rounded-xl bg-maroon-50 dark:bg-[#38061B]/50 text-maroon-700 dark:text-[#F9CFE2] border border-maroon-200/80 dark:border-[#821946]/60 group-hover:scale-105 transition-transform flex-shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65] group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors truncate">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#7C6E65] group-hover:text-maroon-700 dark:group-hover:text-[#E66E9F] transition-colors truncate">
                   In Progress
                 </p>
                 <h3 className="text-xl font-bold text-[#2C1810] dark:text-slate-100">{overview.inProgressTasks}</h3>
               </div>
             </div>
-            <div className="flex items-center text-[10px] font-semibold text-maroon-700 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+            <div className="flex items-center text-[10px] font-semibold text-maroon-700 dark:text-[#E66E9F] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
               <span className="hidden sm:inline">View</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-0.5" />
             </div>
@@ -194,7 +194,7 @@ export const DashboardPage: React.FC = () => {
             onClick={() => navigate('/tasks?status=COMPLETED')}
             onKeyDown={(e) => e.key === 'Enter' && navigate('/tasks?status=COMPLETED')}
             title="Click to view completed tasks"
-            className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-emerald-300 dark:hover:border-emerald-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-emerald-300 dark:hover:border-emerald-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
           >
             <div className="flex items-center gap-3.5 min-w-0">
               <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform flex-shrink-0">
@@ -223,7 +223,7 @@ export const DashboardPage: React.FC = () => {
             onClick={() => navigate('/tasks?overdue=true')}
             onKeyDown={(e) => e.key === 'Enter' && navigate('/tasks?overdue=true')}
             title="Click to view overdue tasks"
-            className="p-4 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-rose-300 dark:hover:border-rose-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+            className="p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex items-center justify-between gap-3 cursor-pointer hover:border-rose-300 dark:hover:border-rose-500/60 hover:shadow-md hover:-translate-y-0.5 transition-all group"
           >
             <div className="flex items-center gap-3.5 min-w-0">
               <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 group-hover:scale-105 transition-transform flex-shrink-0">
@@ -247,7 +247,7 @@ export const DashboardPage: React.FC = () => {
       {/* Visualizations Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Status Distribution */}
-        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
           <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300">
             Tasks by Status
           </h3>
@@ -262,7 +262,7 @@ export const DashboardPage: React.FC = () => {
                     innerRadius={60}
                     outerRadius={80}
                     paddingAngle={0}
-                    stroke={isDark ? '#111827' : '#FFFDF9'}
+                    stroke={isDark ? '#0D0D0D' : '#FFFDF9'}
                     strokeWidth={2}
                     dataKey="value"
                   >
@@ -275,7 +275,7 @@ export const DashboardPage: React.FC = () => {
                   </Pie>
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: isDark ? '#111827' : '#FFFFFF',
+                      backgroundColor: isDark ? '#0D0D0D' : '#FFFFFF',
                       borderColor: isDark ? '#374151' : '#E2E8F0',
                       borderRadius: '12px',
                       boxShadow: isDark
@@ -305,7 +305,7 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* 7-Day Completion Trend */}
-        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm space-y-4">
           <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300">
             Completion Velocity (Last 7 Days)
           </h3>
@@ -317,7 +317,7 @@ export const DashboardPage: React.FC = () => {
                   <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} allowDecimals={false} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: isDark ? '#111827' : '#FFFFFF',
+                      backgroundColor: isDark ? '#0D0D0D' : '#FFFFFF',
                       borderColor: isDark ? '#374151' : '#E2E8F0',
                       borderRadius: '12px',
                       boxShadow: isDark
@@ -350,7 +350,7 @@ export const DashboardPage: React.FC = () => {
       {/* Bottom Section: Upcoming Deadlines & Recent Activity Feed */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         {/* Upcoming Deadlines */}
-        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex flex-col">
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex flex-col">
           <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300 mb-3.5 flex-shrink-0">
             Upcoming Deadlines
           </h3>
@@ -380,7 +380,7 @@ export const DashboardPage: React.FC = () => {
                     className="p-3 bg-[#FAF6EE] dark:bg-slate-800/40 rounded-xl border border-[#E6DACB]/60 dark:border-slate-800/80 flex items-center justify-between gap-3 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors cursor-pointer group"
                   >
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-xs font-semibold text-[#2C1810] dark:text-slate-100 truncate group-hover:text-maroon-700 dark:group-hover:text-blue-400 transition-colors">
+                      <h4 className="text-xs font-semibold text-[#2C1810] dark:text-slate-100 truncate group-hover:text-maroon-700 dark:group-hover:text-[#E66E9F] transition-colors">
                         {t.title}
                       </h4>
                       <div className="flex items-center gap-2 mt-0.5">
@@ -406,9 +406,9 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Recent Activity Timeline */}
-        <div className="p-5 bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex flex-col">
+        <div className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-[#E6DACB]/80 dark:border-slate-800/80 shadow-sm flex flex-col">
           <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A3B32] dark:text-slate-300 flex items-center gap-1.5 mb-3.5 flex-shrink-0">
-            <ActivityIcon className="w-4 h-4 text-maroon-700 dark:text-blue-300" />
+            <ActivityIcon className="w-4 h-4 text-maroon-700 dark:text-[#F9CFE2]" />
             Workspace Activity
           </h3>
           <div className="space-y-2.5 overflow-y-auto pr-1.5 max-h-[380px]">
@@ -437,7 +437,7 @@ export const DashboardPage: React.FC = () => {
                     <p className="text-[#4A3B32] dark:text-slate-300 leading-snug">
                       <span className="font-semibold text-[#2C1810] dark:text-slate-100">{act.actor?.name || 'User'}</span>{' '}
                       {act.action ? act.action.replace('_', ' ').toLowerCase() : 'updated'}{' '}
-                      {act.task?.title && <span className="text-maroon-700 dark:text-blue-300 font-medium">"{act.task.title}"</span>}
+                      {act.task?.title && <span className="text-maroon-700 dark:text-[#F9CFE2] font-medium">"{act.task.title}"</span>}
                     </p>
                     <span className="text-[10px] text-[#7C6E65] block mt-0.5">
                       {format(new Date(act.createdAt), 'MMM d, h:mm a')}

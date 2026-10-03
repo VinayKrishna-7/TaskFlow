@@ -117,11 +117,11 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-[#FAF6EE] dark:bg-[#0B0F17]">
-      <div className="w-full max-w-md bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl shadow-xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-8 space-y-6">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-[#FAF6EE] dark:bg-[#000000]">
+      <div className="w-full max-w-md bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl shadow-xl border border-[#E6DACB]/80 dark:border-slate-800/80 p-8 space-y-6">
         {/* Brand Header */}
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-blue-600 dark:via-blue-500 dark:to-cyan-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#800020] via-[#991B1B] to-[#540015] dark:from-[#BD326D] dark:via-[#992355] dark:to-[#6B1439] flex items-center justify-center text-white mx-auto shadow-lg shadow-maroon-900/25">
             <Layers className="w-6 h-6" />
           </div>
           <h2 className="text-2xl font-bold tracking-tight text-[#2C1810] dark:text-slate-100">
@@ -134,7 +134,7 @@ export const LoginPage: React.FC = () => {
 
         {/* Error Notification Alert with Direct Solutions */}
         {error && (
-          <div className="p-3.5 bg-rose-50 dark:bg-blue-950/40 border border-rose-200 dark:border-rose-900 rounded-xl text-xs font-semibold text-rose-600 dark:text-blue-400 space-y-2 animate-in fade-in">
+          <div className="p-3.5 bg-rose-50 dark:bg-[#38061B]/40 border border-rose-200 dark:border-rose-900 rounded-xl text-xs font-semibold text-rose-600 dark:text-[#E66E9F] space-y-2 animate-in fade-in">
             <div className="flex items-start gap-2.5">
               <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
               <span className="flex-1 leading-relaxed">{error}</span>
@@ -148,7 +148,7 @@ export const LoginPage: React.FC = () => {
                 <span className="text-[11px] text-[#7C6E65] dark:text-slate-400">Can't remember your password?</span>
                 <Link
                   to="/forgot-password"
-                  className="text-xs font-bold text-maroon-700 dark:text-blue-300 hover:underline"
+                  className="text-xs font-bold text-maroon-700 dark:text-[#F9CFE2] hover:underline"
                 >
                   Reset password &rarr;
                 </Link>
@@ -173,10 +173,10 @@ export const LoginPage: React.FC = () => {
                 if (error) setError('');
               }}
               placeholder="name@company.com"
-              className={`w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#111827] border rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all shadow-xs ${
+              className={`w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all shadow-xs ${
                 error.toLowerCase().includes('email') || error.toLowerCase().includes('account')
-                  ? 'border-rose-300 dark:border-blue-800 focus:ring-rose-500/40 focus:border-rose-500'
-                  : 'border-[#E6DACB] dark:border-slate-700 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500'
+                  ? 'border-rose-300 dark:border-[#821946] focus:ring-rose-500/40 focus:border-rose-500'
+                  : 'border-[#E6DACB] dark:border-slate-700 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]'
               }`}
             />
           </div>
@@ -188,7 +188,7 @@ export const LoginPage: React.FC = () => {
               </label>
               <Link
                 to="/forgot-password"
-                className="text-xs text-maroon-700 dark:text-blue-300 hover:text-maroon-700 hover:underline font-semibold"
+                className="text-xs text-maroon-700 dark:text-[#F9CFE2] hover:text-maroon-700 hover:underline font-semibold"
               >
                 Forgot password?
               </Link>
@@ -204,10 +204,10 @@ export const LoginPage: React.FC = () => {
                   if (error) setError('');
                 }}
                 placeholder="Enter your password"
-                className={`w-full px-3.5 py-2 pr-10 bg-[#FFFDF9] dark:bg-[#111827] border rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all shadow-xs ${
+                className={`w-full px-3.5 py-2 pr-10 bg-[#FFFDF9] dark:bg-[#0D0D0D] border rounded-xl text-sm text-[#2C1810] dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all shadow-xs ${
                   error.toLowerCase().includes('password')
-                    ? 'border-rose-300 dark:border-blue-800 focus:ring-rose-500/40 focus:border-rose-500'
-                    : 'border-[#E6DACB] dark:border-slate-700 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500'
+                    ? 'border-rose-300 dark:border-[#821946] focus:ring-rose-500/40 focus:border-rose-500'
+                    : 'border-[#E6DACB] dark:border-slate-700 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355]'
                 }`}
               />
               <button
@@ -240,7 +240,7 @@ export const LoginPage: React.FC = () => {
 
         <p className="text-xs text-center text-[#7C6E65] dark:text-slate-400 pt-2 border-t border-[#E6DACB]/60 dark:border-slate-800/80">
           Don't have an account?{' '}
-          <Link to="/register" className="text-maroon-700 dark:text-blue-300 font-bold hover:underline">
+          <Link to="/register" className="text-maroon-700 dark:text-[#F9CFE2] font-bold hover:underline">
             Create account
           </Link>
         </p>

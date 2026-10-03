@@ -12,7 +12,7 @@ export const CardSkeleton: React.FC<{ count?: number }> = ({ count = 3 }) => (
     {Array.from({ length: count }).map((_, i) => (
       <div
         key={i}
-        className="p-5 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm space-y-4 animate-pulse"
+        className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm space-y-4 animate-pulse"
       >
         <div className="flex justify-between items-center">
           <div className="w-16 h-5 bg-slate-200 dark:bg-slate-800 rounded-full" />
@@ -37,7 +37,7 @@ export const TableRowSkeleton: React.FC<{ rows?: number }> = ({ rows = 5 }) => (
     {Array.from({ length: rows }).map((_, i) => (
       <div
         key={i}
-        className="flex items-center justify-between p-4 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-xl"
+        className="flex items-center justify-between p-4 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-xl"
       >
         <div className="flex items-center gap-3 flex-1">
           <div className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800" />
@@ -71,12 +71,12 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => (
   <div
     className={cn(
-      'flex flex-col items-center justify-center p-8 sm:p-12 text-center bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-dashed border-[#E6DACB] dark:border-slate-800/80 my-4 shadow-xs',
+      'flex flex-col items-center justify-center p-8 sm:p-12 text-center bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-dashed border-[#E6DACB] dark:border-slate-800/80 my-4 shadow-xs',
       className
     )}
   >
     {icon && (
-      <div className="p-3.5 bg-maroon-50 dark:bg-blue-950/40 text-maroon-700 dark:text-blue-300 rounded-2xl mb-3.5 border border-maroon-200 dark:border-blue-800/50 shadow-xs">
+      <div className="p-3.5 bg-maroon-50 dark:bg-[#38061B]/40 text-maroon-700 dark:text-[#F9CFE2] rounded-2xl mb-3.5 border border-maroon-200 dark:border-[#821946]/50 shadow-xs">
         {icon}
       </div>
     )}
@@ -108,11 +108,11 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
   <div
     role="alert"
     className={cn(
-      'flex flex-col items-center justify-center p-8 sm:p-12 text-center bg-[#FFFDF9] dark:bg-[#111827] rounded-2xl border border-rose-200 dark:border-rose-900/50 my-4 shadow-xs',
+      'flex flex-col items-center justify-center p-8 sm:p-12 text-center bg-[#FFFDF9] dark:bg-[#0D0D0D] rounded-2xl border border-rose-200 dark:border-rose-900/50 my-4 shadow-xs',
       className
     )}
   >
-    <div className="p-3 bg-rose-50 dark:bg-blue-950/50 text-rose-600 dark:text-blue-400 rounded-2xl mb-3 border border-rose-200 dark:border-rose-900/50">
+    <div className="p-3 bg-rose-50 dark:bg-[#38061B]/50 text-rose-600 dark:text-[#E66E9F] rounded-2xl mb-3 border border-rose-200 dark:border-rose-900/50">
       <AlertCircle className="w-6 h-6" />
     </div>
     <h3 className="text-base font-bold text-[#2C1810] dark:text-slate-100 mb-1">{title}</h3>

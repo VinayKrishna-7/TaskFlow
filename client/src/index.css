@@ -8,7 +8,7 @@
   }
 
   ::selection {
-    @apply bg-maroon-600/20 text-maroon-800 dark:bg-blue-500/30 dark:text-blue-200;
+    @apply bg-maroon-600/20 text-maroon-800 dark:bg-plum-500/30 dark:text-plum-200;
   }
 }
 
@@ -25,13 +25,13 @@
   border-radius: 9999px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #262626;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #B8A390;
 }
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #992355;
 }
 
 /* Recharts tooltip styling for high contrast in all themes */
@@ -43,8 +43,8 @@
 }
 
 .dark .recharts-default-tooltip {
-  background-color: #111827 !important;
-  border: 1px solid #374151 !important;
+  background-color: #0D0D0D !important;
+  border: 1px solid #262626 !important;
   color: #f9fafb !important;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .dark .recharts-tooltip-label {
-  color: #9ca3af !important;
+  color: #a3a3a3 !important;
   font-weight: 600 !important;
   margin-bottom: 4px !important;
 }

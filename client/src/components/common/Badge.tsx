@@ -25,7 +25,7 @@ export const Badge: React.FC<BadgeProps> = ({
         styleClasses = 'bg-[#F3ECE2] text-[#2C1810] dark:bg-slate-800/80 dark:text-slate-300 border border-[#E6DACB] dark:border-slate-700';
         break;
       case 'IN_PROGRESS':
-        styleClasses = 'bg-maroon-50 text-maroon-700 dark:bg-blue-950/60 dark:text-blue-300 border border-maroon-200 dark:border-blue-800/60';
+        styleClasses = 'bg-maroon-50 text-maroon-700 dark:bg-[#38061B]/60 dark:text-[#F9CFE2] border border-maroon-200 dark:border-[#821946]/60';
         break;
       case 'IN_REVIEW':
         styleClasses = 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200/80 dark:border-amber-800/60';
@@ -42,13 +42,13 @@ export const Badge: React.FC<BadgeProps> = ({
         styleClasses = 'bg-[#F3ECE2] text-[#7C6E65] dark:bg-slate-800 dark:text-slate-300';
         break;
       case 'MEDIUM':
-        styleClasses = 'bg-maroon-50 text-maroon-700 dark:bg-blue-950/60 dark:text-blue-300 border border-maroon-200 dark:border-blue-800/60 font-medium';
+        styleClasses = 'bg-maroon-50 text-maroon-700 dark:bg-[#38061B]/60 dark:text-[#F9CFE2] border border-maroon-200 dark:border-[#821946]/60 font-medium';
         break;
       case 'HIGH':
         styleClasses = 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 font-semibold';
         break;
       case 'URGENT':
-        styleClasses = 'bg-rose-50 text-rose-700 dark:bg-blue-950/60 dark:text-blue-300 font-bold';
+        styleClasses = 'bg-rose-50 text-rose-700 dark:bg-[#38061B]/60 dark:text-[#F9CFE2] font-bold';
         break;
     }
   }

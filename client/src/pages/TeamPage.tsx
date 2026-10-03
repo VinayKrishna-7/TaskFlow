@@ -153,7 +153,7 @@ export const TeamPage: React.FC = () => {
           <button
             type="button"
             onClick={() => setIsInviteOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer self-start sm:self-auto"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-maroon-600 hover:bg-maroon-700 dark:bg-[#992355] dark:hover:bg-[#BD326D] text-white rounded-xl text-xs font-semibold shadow-sm shadow-maroon-900/20 transition-all cursor-pointer self-start sm:self-auto"
           >
             <UserPlus className="w-4 h-4" />
             Invite Member
@@ -167,7 +167,7 @@ export const TeamPage: React.FC = () => {
         <ErrorState message="Failed to load workspace team members." onRetry={() => refetch()} />
       ) : members.length === 0 ? (
         <EmptyState
-          icon={<Users className="w-8 h-8 text-maroon-700 dark:text-blue-400" />}
+          icon={<Users className="w-8 h-8 text-maroon-700 dark:text-[#E66E9F]" />}
           title="No team members yet"
           description="Invite your team to collaborate on projects, assign tasks, and track workload together."
           actionText={canManageMembers ? 'Invite Member' : undefined}
@@ -201,7 +201,7 @@ export const TeamPage: React.FC = () => {
             return (
               <div
                 key={m._id || memberId}
-                className="p-5 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm space-y-4 relative group"
+                className="p-5 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB]/80 dark:border-slate-800/80 rounded-2xl shadow-sm space-y-4 relative group"
               >
                 <div className="flex items-center gap-3.5">
                   <Avatar src={memberAvatar} name={memberName} size="lg" />
@@ -212,7 +212,7 @@ export const TeamPage: React.FC = () => {
                     <p className="text-xs text-[#7C6E65] truncate">@{memberUsername}</p>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-maroon-50 text-maroon-700 dark:bg-blue-950/60 dark:text-blue-300 border border-maroon-200/80 dark:border-blue-800/60">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-maroon-50 text-maroon-700 dark:bg-[#38061B]/60 dark:text-[#F9CFE2] border border-maroon-200/80 dark:border-[#821946]/60">
                       {m.role || (isMemberOwner ? 'OWNER' : 'MEMBER')}
                     </span>
                     {canManageMembers && !isMemberOwner && !isSelf && (
@@ -231,19 +231,19 @@ export const TeamPage: React.FC = () => {
 
                 {/* Workload Stats */}
                 <div className="grid grid-cols-3 gap-2 text-center pt-2 border-t border-[#E6DACB]/60 dark:border-slate-800/80">
-                  <div className="p-2 bg-[#FAF6EE] dark:bg-[#0B0F17] rounded-xl">
+                  <div className="p-2 bg-[#FAF6EE] dark:bg-[#000000] rounded-xl">
                     <span className="text-[10px] uppercase font-bold text-[#7C6E65]">Assigned</span>
                     <p className="text-xs font-bold text-[#2C1810] dark:text-slate-200">
                       {stats.total}
                     </p>
                   </div>
-                  <div className="p-2 bg-[#FAF6EE] dark:bg-[#0B0F17] rounded-xl">
+                  <div className="p-2 bg-[#FAF6EE] dark:bg-[#000000] rounded-xl">
                     <span className="text-[10px] uppercase font-bold text-[#7C6E65]">Done</span>
                     <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
                       {stats.completed}
                     </p>
                   </div>
-                  <div className="p-2 bg-[#FAF6EE] dark:bg-[#0B0F17] rounded-xl">
+                  <div className="p-2 bg-[#FAF6EE] dark:bg-[#000000] rounded-xl">
                     <span className="text-[10px] uppercase font-bold text-[#7C6E65]">Logged</span>
                     <p className="text-xs font-bold text-[#2C1810] dark:text-slate-200">
                       {stats.actualHours}h
@@ -274,7 +274,7 @@ export const TeamPage: React.FC = () => {
             <select
               value={role}
               onChange={(e) => setRole(e.target.value as 'ADMIN' | 'MEMBER')}
-              className="w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#111827] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-blue-500 cursor-pointer"
+              className="w-full px-3.5 py-2 bg-[#FFFDF9] dark:bg-[#0D0D0D] border border-[#E6DACB] dark:border-slate-700 rounded-xl text-sm text-[#2C1810] dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-maroon-600/30 focus:border-maroon-600 dark:focus:border-[#992355] cursor-pointer"
             >
               <option value="MEMBER">Member (standard project collaborator)</option>
               <option value="ADMIN">Admin (can manage members & projects)</option>
