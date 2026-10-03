@@ -106,10 +106,20 @@ export const HomePage: React.FC = () => {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-[#E6DACB] dark:border-[#1C1C1C] py-6 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#7C6E65] dark:text-slate-500">
-          <span className="font-medium text-[#2C1810] dark:text-slate-300">TaskFlow</span>
-          <span>A simple task and project management tool for teams.</span>
+      <footer className="border-t border-[#E6DACB] dark:border-[#1C1C1C] py-8 px-6 mt-auto">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link to="/" className="flex items-center gap-2.5 group select-none">
+            <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-[#800020] to-[#540015] dark:from-[#BD326D] dark:via-[#992355] dark:to-[#6B1439] flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform duration-200">
+              <Layers className="w-3.5 h-3.5" />
+            </div>
+            <span className="font-semibold text-sm tracking-tight text-[#2C1810] dark:text-slate-200 group-hover:text-maroon-700 dark:group-hover:text-[#BD326D] transition-colors">
+              TaskFlow
+            </span>
+          </Link>
+
+          <p className="text-xs text-[#7C6E65] dark:text-slate-500 text-center sm:text-right">
+            A simple, clean task and project management tool for teams.
+          </p>
         </div>
       </footer>
 
