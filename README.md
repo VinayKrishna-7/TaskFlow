@@ -1,145 +1,141 @@
 # TaskFlow
 
-A modern, full-stack project and task management web application built with React, Node.js, Express, and MongoDB.
+> A modern, full-stack project and task management web application to organize projects, track progress with Kanban boards, generate task breakdowns with AI, and collaborate in real time.
 
-TaskFlow helps individuals and teams organize projects, track progress with interactive Kanban boards, generate task breakdowns using AI, and collaborate in real time.
-
-🔗 **Live Demo**: [https://taskflow-1-p7yr.onrender.com](https://taskflow-1-p7yr.onrender.com)
-
-> [!NOTE]
-> **Live Demo Wake-Up Note**: The application is hosted on Render's free tier. If the website has not been visited recently, the cloud instance automatically enters a sleep state to conserve resources. The initial visit may take **30–50 seconds** to wake up the backend server. Once active, it operates seamlessly and fast.
-
-Users can click **Create account** on the sign-in page to register with their email address, initialize a personal workspace, and start managing projects.
-
-<p align="left">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white" alt="Socket.io" />
-</p>
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-RENDER-20e8b6?style=for-the-badge&logo=render&logoColor=white)](https://taskflow-1-p7yr.onrender.com)
+[![React](https://img.shields.io/badge/REACT-18.3-61dafb?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TYPESCRIPT-5.7-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/NODE.JS-20+-43853d?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Tailwind](https://img.shields.io/badge/TAILWIND-3.4-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![MongoDB](https://img.shields.io/badge/MONGODB-8.9-47a248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Socket.IO](https://img.shields.io/badge/SOCKET.IO-4.8-010101?style=for-the-badge&logo=socketdotio&logoColor=white)](https://socket.io/)
 
 ---
 
-## 🛠️ Tech Stack & What We Used
+## 🌐 Live Website
 
-- **Frontend Core**: **React 18**, **TypeScript**, and **Vite** for fast, reactive UI development
-- **UI & Styling**: **Tailwind CSS** with custom dark and light themes, and **Lucide Icons**
-- **State Management**: **Zustand** for lightweight and fast global client state
-- **Kanban Drag & Drop**: **@dnd-kit/core** & **@dnd-kit/sortable** for 60 FPS accessible task drag-and-drop
-- **Charts & Visualizations**: **Recharts** for velocity graphs and continuous 360° task status rings
-- **Backend API**: **Node.js** & **Express.js** (TypeScript) with modular REST architecture
-- **Database & ODM**: **MongoDB** with **Mongoose** (featuring automatic persistent embedded DB fallback)
-- **Real-Time Sockets**: **Socket.IO** for live multi-user board and task updates
-- **AI Task Decomposition**: **Google Gemini AI** for smart project planning and automated task generation
-- **Auth & Security**: **JWT** (JSON Web Tokens) with persistent sessions, bcrypt password hashing, and token reset
+Open the live website:  
+👉 **[https://taskflow-1-p7yr.onrender.com](https://taskflow-1-p7yr.onrender.com)**
+
+> ⏳ **Note about the live link:**  
+> The site is hosted on Render's free tier. If no one has visited recently, the server goes into sleep mode to save resources. When opening the link for the first time, it might take **30 to 50 seconds** to wake up. Please wait a moment for the page to load!
 
 ---
 
-## 🚀 Key Features
+## 📖 What is TaskFlow?
 
-- **Executive Dashboard**: High-level overview of workspace metrics, task velocity, 360° status donut ring, and upcoming deadlines built with **Recharts**. Clickable KPI cards filter tasks instantly.
-- **My Tasks**: Multi-project aggregated task view with instant regex-safe search (by title, #number, labels, assignees) and list/grid card view toggles.
-- **Kanban Board**: Drag-and-drop task management across customizable workflow columns powered by **@dnd-kit**.
-- **AI Project Planner**: Break down project prompts into structured milestones and tasks using **Google Gemini AI**.
-- **Real-Time Synchronization**: Instant multi-client updates for task moves, status changes, and comments with **Socket.IO**.
-- **Interactive Calendar**: Monthly schedule and daily timeline views for tracking deadlines.
-- **Dark & Light Themes**: Obsidian Blue dark theme and Warm Cream light theme built with **Tailwind CSS**.
-- **Authentication & Security**: Secure **JWT** authentication with persistent sessions and password reset support.
+**TaskFlow** makes it easy for individuals and teams to organize tasks, track project delivery, and collaborate in real time.
+
+Users can create an account using their **email address**, set up workspaces, invite team members, and manage deliverables across multiple project boards:
+
+1. 📋 **Workspace & Project Hub**  
+   Organize your work into dedicated workspaces and projects. Easily switch between project contexts or aggregate deliverables across all projects in a unified view.
+
+2. 📌 **Interactive Kanban Board**  
+   Drag and drop tasks across workflow stages (`To Do`, `In Progress`, `In Review`, `Completed`) with zero latency and instant real-time sync for all teammates.
+
+3. 🤖 **AI Project Decomposition**  
+   Type a high-level project requirement (e.g., *"Build a responsive e-commerce checkout flow"*), and TaskFlow automatically generates structured milestones, subtasks, and estimates using Google Gemini AI.
 
 ---
 
-## Getting Started
+## ✨ Features
+
+- **Interactive Kanban**: Fluid 60 FPS drag-and-drop task movement across customizable stages.
+- **My Tasks Hub**: Unified view of all assigned tasks across projects with real-time search and filter toggles.
+- **AI Task Planner**: Break down requirements into actionable subtasks with one click using Google Gemini AI.
+- **Live Synchronization**: Real-time multi-user board and task updates powered by Socket.IO.
+- **Executive Dashboard**: Visual metrics for task velocity, deadlines, and a continuous 360° completion donut chart.
+- **Calendar & Timeline**: Plan and track deliverables on a month/day timeline with overdue indicators.
+- **Secure Email Authentication**: JWT authentication with 30-day session persistence and password reset.
+- **Light & Dark Themes**: Obsidian Blue dark mode and Warm Cream light mode with zero screen flicker.
+- **Mobile Friendly**: Designed to look clean and work smoothly on phones, tablets, and desktops.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Tools Used |
+|---|---|
+| **Frontend** | React 18, TypeScript, Vite, Tailwind CSS, Zustand |
+| **Kanban & UI** | `@dnd-kit/core`, `@dnd-kit/sortable`, Recharts, Lucide Icons |
+| **Backend** | Node.js 20+, Express.js, TypeScript |
+| **Database** | MongoDB, Mongoose ODM |
+| **Real-Time** | Socket.IO (WebSockets) |
+| **AI Integration** | Google Gemini AI |
+| **Hosting** | Render (Static Site + Web Service) + MongoDB Atlas |
+
+---
+
+## 🚀 Getting Started Locally
+
+Follow these quick steps to run the project on your computer.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- [npm](https://www.npmjs.com/) (v9 or higher)
-- [MongoDB](https://www.mongodb.com/) *(optional — an embedded database will automatically run if a local instance is not detected)*
+- **Node.js** (v18 or higher)
+- **npm** (v9 or higher)
+- **MongoDB** *(or use the built-in automatic runner)*
 
-### Installation
+### 1. Clone the Repository
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/VinayKrishna-7/TaskFlow.git
-   cd TaskFlow
-   ```
+```bash
+git clone https://github.com/VinayKrishna-7/TaskFlow.git
+cd TaskFlow
+```
 
-2. **Install dependencies**
-   ```bash
-   npm run install:all
-   ```
+### 2. Install Dependencies
 
-3. **Configure Environment Variables**
+```bash
+npm run install:all
+```
 
-   Copy the example environment files for both server and client:
-   ```bash
-   # Server environment
-   cp server/.env.example server/.env
+### 3. Set Up Environment Files
 
-   # Client environment
-   cp client/.env.example client/.env
-   ```
+Create a `.env` file in the `server` folder:
+```env
+PORT=5000
+CLIENT_URL="http://localhost:5173"
+MONGO_URI="mongodb://127.0.0.1:27017/taskflow"
+JWT_ACCESS_SECRET="taskflow_secret_access_key_123"
+JWT_REFRESH_SECRET="taskflow_secret_refresh_key_123"
+```
 
-4. **Seed Sample Data (Optional)**
+Create a `.env` file in the `client` folder:
+```env
+VITE_API_URL="http://localhost:5000/api"
+VITE_SOCKET_URL="http://localhost:5000"
+```
 
-   Populate the database with sample users, workspaces, projects, and tasks:
-   ```bash
-   npm run seed
-   ```
+### 4. (Optional) Seed Sample Data
 
-5. **Start Development Servers**
-   ```bash
-   npm run dev
-   ```
+Populate demo projects, Kanban tasks, and workspace data:
+```bash
+npm run seed
+```
 
-   - **Frontend App**: `http://localhost:5173`
-   - **Backend API**: `http://localhost:5000/api`
+### 5. Start Development Server
+
+Run both client and server together:
+```bash
+npm run dev
+```
+
+- **Frontend Client**: `http://localhost:5173`
+- **Backend API**: `http://localhost:5000/api`
+- **Health Check**: `http://localhost:5000/api/health`
 
 ---
 
-## Project Structure
+## 🧪 Running Tests
 
-```
-TaskFlow/
-├── client/          # React frontend (Vite + Tailwind CSS + TypeScript)
-│   ├── src/
-│   │   ├── components/  # Reusable UI & layout components
-│   │   ├── pages/       # Page views (Dashboard, Kanban, Tasks, Calendar, etc.)
-│   │   ├── store/       # Zustand client state stores
-│   │   └── services/    # API & WebSocket client services
-├── server/          # Express backend (Node.js + TypeScript)
-│   ├── src/
-│   │   ├── controllers/ # Route handlers & business logic
-│   │   ├── models/      # Mongoose schemas & data models
-│   │   ├── routes/      # REST API route endpoints
-│   │   └── sockets/     # Real-time Socket.IO handlers
-└── package.json     # Root scripts & workspaces
+Run the automated tests:
+```bash
+npm test
 ```
 
 ---
 
-## Available Scripts
-
-In the root project directory, you can run:
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Starts both server and client in development mode |
-| `npm run build` | Builds both server and client for production |
-| `npm run seed` | Seeds the database with demo projects and tasks |
-| `npm run test` | Runs automated test suites |
-| `npm run lint` | Runs ESLint checks on client code |
-
----
-
-## License
+## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
-## Author
-
-Created by [Vinay Krishna](https://github.com/VinayKrishna-7).
