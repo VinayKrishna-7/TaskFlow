@@ -4,8 +4,7 @@ TaskFlow is a collaborative task and workflow management application designed to
 
 [Live Demo](https://taskflow-1-p7yr.onrender.com)
 
-> **Note:** The demo is hosted on Render's free tier. If the service has been idle, please allow 30–50 seconds for the server to spin up on your first visit.
-
+> Note: The demo is hosted on Render's free tier. If the service has been idle, the server automatically sleeps to conserve resources — please allow 30–50 seconds for the initial wake-up on your first visit. Once loaded, all features run normally.
 ---
 
 ## Features
