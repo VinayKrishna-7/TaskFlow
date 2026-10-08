@@ -1,8 +1,8 @@
 # TaskFlow
 
-A clean, full-stack project and task management application built with React, Node.js, and MongoDB.
+TaskFlow is a collaborative task and workflow management application designed to simplify project tracking and sprint planning. It brings together interactive drag-and-drop Kanban boards, real-time multi-user synchronization, AI-assisted task breakdown, and progress analytics into a focused, responsive interface.
 
-Live Demo: [taskflow-1-p7yr.onrender.com](https://taskflow-1-p7yr.onrender.com)
+**Live Demo:** [taskflow-1-p7yr.onrender.com](https://taskflow-1-p7yr.onrender.com)
 
 ---
 
