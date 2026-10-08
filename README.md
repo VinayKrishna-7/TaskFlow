@@ -2,13 +2,7 @@
 
 TaskFlow is a collaborative task and workflow management application designed to simplify project tracking and sprint planning. It brings together interactive drag-and-drop Kanban boards, real-time multi-user synchronization, AI-assisted task breakdown, and progress analytics into a focused, responsive interface.
 
----
-
-## Live Demo
-
-A live deployment of TaskFlow is available at **[taskflow-1-p7yr.onrender.com](https://taskflow-1-p7yr.onrender.com)**.
-
-Feel free to create a test account with any email to explore the interactive Kanban board, real-time collaboration, and AI task assistant.
+[Live Demo](https://taskflow-1-p7yr.onrender.com)
 
 > **Note:** The demo is hosted on Render's free tier. If the service has been idle, please allow 30–50 seconds for the server to spin up on your first visit.
 
