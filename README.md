@@ -89,18 +89,6 @@ This starts both servers concurrently:
 
 ---
 
-## Available Scripts
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Starts frontend and backend concurrently in dev mode |
-| `npm run build` | Builds both frontend and backend for production |
-| `npm run seed` | Seeds database with initial sample projects and tasks |
-| `npm test` | Runs backend test suite |
-| `npm run lint` | Runs ESLint on frontend code |
-
----
-
 ## License
 
 [MIT](LICENSE)
