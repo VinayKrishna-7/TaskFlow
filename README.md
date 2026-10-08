@@ -91,4 +91,4 @@ This starts both servers concurrently:
 
 ## License
 
-[MIT](LICENSE)
+MIT
